@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7b3e191bb24444bb2bbde8b712087f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heldbatt: {fileID: 711763283573990739, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
 --- !u!58 &495393119
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -404,7 +405,7 @@ GameObject:
   - component: {fileID: 1395063214}
   m_Layer: 0
   m_Name: battery
-  m_TagString: battery
+  m_TagString: Battery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
