@@ -11,7 +11,7 @@ public class batt_pickup : MonoBehaviour
     private bool inRange = false;
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "battery")
+        if(col.tag == "Battery")
         {
             inRange = true;
             batt = col.gameObject;
@@ -20,7 +20,7 @@ public class batt_pickup : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.tag == "battery")
+        if (col.tag == "Battery")
         {
             inRange = true;
         }
