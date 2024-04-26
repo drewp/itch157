@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class parent_script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject parent;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, transform.position.z);
     }
 }
