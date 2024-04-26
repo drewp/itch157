@@ -254,7 +254,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -541,6 +541,14 @@ PrefabInstance:
     - target: {fileID: 6401089616005690360, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862810998194675068, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
+      propertyPath: TimeToRefill
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862810998194675068, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
+      propertyPath: PowerRefilled
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
