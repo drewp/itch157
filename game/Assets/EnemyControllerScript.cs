@@ -34,5 +34,11 @@ public class EnemyControllerScript : MonoBehaviour
             Agroed = true;
         }
     }
-
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Agroed = false;
+        }
+    }
 }
