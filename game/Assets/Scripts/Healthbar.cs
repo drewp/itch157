@@ -11,6 +11,7 @@ public class Healthbar : MonoBehaviour
     }
     void Update()
     {
-        transform.localScale = new Vector3(ObjScale * (Generator.Power/ Generator.MaxPower), transform.localScale.y, transform.localScale.z);
+        Generator Gen = this.GetComponentInParent<Generator>();
+        transform.localScale = new Vector3(ObjScale * (Gen.Power/Gen.MaxPower), transform.localScale.y, transform.localScale.z);
     }
 }

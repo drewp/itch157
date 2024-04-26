@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    public static float Power = 1000;
-    public static float MaxPower = 1000;
+    public float Power = 1000;
+    public float MaxPower = 1000;
     void Start()
     {
         
@@ -14,6 +14,10 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Power -= 5f;
+        Power -= 1f;
+        if(Power <= 0)
+        {
+            Power = 0;
+        }
     }
 }
