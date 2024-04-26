@@ -8,6 +8,7 @@ public class EnemyControllerScript : MonoBehaviour
     private CircleCollider2D AgroCollider;
     private GameObject Player;
     private bool Agroed = false;
+    private float Cooldown;
    
 
 
@@ -24,6 +25,13 @@ public class EnemyControllerScript : MonoBehaviour
     void Update()
     {
         if (Agroed) EnemyObject.DoAgro(gameObject, Player);
+        float Dst = Vector3.Distance(transform.position, Player.transform.position);
+        if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
+        {
+            EnemyObject.DoAttack(gameObject, Player);
+            Cooldown = 0;
+        }
+        Cooldown += Time.deltaTime;
 
     }
 
@@ -41,4 +49,6 @@ public class EnemyControllerScript : MonoBehaviour
             Agroed = false;
         }
     }
+
+   
 }
