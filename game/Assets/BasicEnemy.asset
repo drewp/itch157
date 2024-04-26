@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agroDst: 10
   Dmg: 10
-  Speed: 10
-  AttackSpeed: 10
+  Speed: 5
+  AttackCooldown: 1
+  AttackRange: 1
+  Agro: 0
+  Attack: 0

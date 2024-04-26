@@ -8,18 +8,41 @@ public class EnemyObject : ScriptableObject
     public float agroDst;
     public float Dmg;
     public float Speed;
-    public float AttackSpeed;
+    public float AttackCooldown;
+    public float AttackRange;
 
     public enum AgroMode {Basic};
     public AgroMode Agro;
 
+    public enum AttackMode { Basic };
+    public AttackMode Attack;
+
     private void BasicAgro(GameObject Enemy,GameObject target)
     {
-       Enemy.transform.position = Vector3.MoveTowards(Enemy.transform.position,target.transform.position,Speed*Time.deltaTime);
+        float Dst = Vector3.Distance(Enemy.transform.position, target.transform.position);
+       if (Dst > AttackRange )  Enemy.transform.position = Vector3.MoveTowards(Enemy.transform.position,target.transform.position,Speed*Time.deltaTime);
+       
     }
 
     public void DoAgro(GameObject Enemy,GameObject target)
     {
         if (Agro == AgroMode.Basic) BasicAgro(Enemy,target);
     }
+
+
+    private void BasicAttack(GameObject Enemy, GameObject target)
+    {
+        HealthScript HealthScript = target.GetComponent<HealthScript>();
+        if (HealthScript != null ) HealthScript.Health -= Dmg;
+        
+    }
+
+    public void DoAttack(GameObject Enemy, GameObject target)
+    {
+        if (Agro == AgroMode.Basic) BasicAttack(Enemy, target);
+    }
+
+
+
+
 }
