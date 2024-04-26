@@ -15,8 +15,7 @@ public class EnemyObject : ScriptableObject
 
     private void BasicAgro(GameObject Enemy,GameObject target)
     {
-       
-       Debug.Log(Vector3.MoveTowards(Enemy.transform.position,target.transform.position,Speed*Time.deltaTime));
+       Enemy.transform.position = Vector3.MoveTowards(Enemy.transform.position,target.transform.position,Speed*Time.deltaTime);
     }
 
     public void DoAgro(GameObject Enemy,GameObject target)
