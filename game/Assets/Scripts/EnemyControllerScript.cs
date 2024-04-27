@@ -13,6 +13,7 @@ public class EnemyControllerScript : MonoBehaviour
     private float WanderWait = 2.5f;
     private Collider2D Collider;
     private Collider2D PlayerCollider;
+    private Rigidbody2D rb;
 
 
 
@@ -21,6 +22,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         
         Player = GameObject.Find("Player");
+        rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
         PlayerCollider = Player.GetComponent<BoxCollider2D>();
     }
@@ -66,7 +68,9 @@ public class EnemyControllerScript : MonoBehaviour
         {
             WanderPoint = transform.position;
         }
-        transform.position = Vector3.MoveTowards(transform.position, WanderPoint, EnemyObject.Speed/2f * Time.deltaTime);
+        Vector3 dir = WanderPoint - transform.position;
+        dir = dir.normalized;
+        rb.AddForce(dir * EnemyObject.Speed/Random.Range(1.7f,4f)*EnemyObject.SpeedMult * Time.deltaTime);
         if (Vector3.Distance(transform.position, WanderPoint) < 1f)
         {
             WanderCooldown += Time.deltaTime;

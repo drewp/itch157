@@ -11,6 +11,7 @@ public class EnemyObject : ScriptableObject
     public float AttackCooldown;
     public float AttackRange;
     public float WanderRange;
+    [HideInInspector] public float SpeedMult = 10f;
 
     public enum AgroMode {Basic};
     public AgroMode Agro;
@@ -18,12 +19,16 @@ public class EnemyObject : ScriptableObject
     public enum AttackMode { Basic };
     public AttackMode Attack;
 
-    
 
-    private void BasicAgro(GameObject Enemy,GameObject target,float Dst)
+
+    private void BasicAgro(GameObject Enemy, GameObject target, float Dst)
     {
-       if (Dst > AttackRange )  Enemy.transform.position = Vector3.MoveTowards(Enemy.transform.position,target.transform.position,Speed*Time.deltaTime);
-       
+        if (Dst > AttackRange)
+        {
+            Vector3 dir = target.transform.position - Enemy.transform.position;
+            dir = dir.normalized;
+            Enemy.GetComponent<Rigidbody2D>().AddForce(dir * Speed*SpeedMult * Time.deltaTime);
+        }
     }
 
     public void DoAgro(GameObject Enemy,GameObject target,float Dst)
