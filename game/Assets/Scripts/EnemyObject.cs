@@ -10,12 +10,15 @@ public class EnemyObject : ScriptableObject
     public float Speed;
     public float AttackCooldown;
     public float AttackRange;
+    public float WanderRange;
 
     public enum AgroMode {Basic};
     public AgroMode Agro;
 
     public enum AttackMode { Basic };
     public AttackMode Attack;
+
+    
 
     private void BasicAgro(GameObject Enemy,GameObject target)
     {
@@ -33,13 +36,14 @@ public class EnemyObject : ScriptableObject
     private void BasicAttack(GameObject Enemy, GameObject target)
     {
         HealthScript HealthScript = target.GetComponent<HealthScript>();
-        if (HealthScript != null ) HealthScript.Health -= Dmg;
+        if (HealthScript != null ) HealthScript.TakeDamage(Dmg);
         
     }
+  
 
     public void DoAttack(GameObject Enemy, GameObject target)
     {
-        if (Agro == AgroMode.Basic) BasicAttack(Enemy, target);
+        if (Attack == AttackMode.Basic) BasicAttack(Enemy, target);
     }
 
 

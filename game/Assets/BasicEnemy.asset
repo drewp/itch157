@@ -17,5 +17,6 @@ MonoBehaviour:
   Speed: 5
   AttackCooldown: 1
   AttackRange: 1
+  WanderRange: 5
   Agro: 0
   Attack: 0
