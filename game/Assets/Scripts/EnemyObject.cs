@@ -28,6 +28,7 @@ public class EnemyObject : ScriptableObject
             Vector3 dir = target.transform.position - Enemy.transform.position;
             dir = dir.normalized;
             Enemy.GetComponent<Rigidbody2D>().AddForce(dir * Speed*SpeedMult * Time.deltaTime);
+
         }
     }
 
