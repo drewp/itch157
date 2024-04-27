@@ -24,6 +24,11 @@ public class batt_pickup : MonoBehaviour
     private Sprite normimg;
 
     public AudioSource PickupSound;
+
+    void Start()
+    {
+    
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Battery" && holding == false)
