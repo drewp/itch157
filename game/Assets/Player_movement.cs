@@ -13,6 +13,6 @@ public class Player_movement : MonoBehaviour
     
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * PowerUpScript.GetComponent<PowerUpVariables>().MovementSpeedMod;
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
     }
 }
