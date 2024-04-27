@@ -19,12 +19,16 @@ public class robot_anim : MonoBehaviour
             {
                 anm.SetBool("isWalking", false);
                 anm.SetBool("isIdle", true);
+                anm.SetBool("isAttacking", false);
+
 
             }
             else
             {
                 anm.SetBool("isWalking", true);
                 anm.SetBool("isIdle", false);
+                anm.SetBool("isAttacking", false);
+
             }
         }
         else

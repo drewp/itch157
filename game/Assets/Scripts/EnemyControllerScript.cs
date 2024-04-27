@@ -57,6 +57,7 @@ public class EnemyControllerScript : MonoBehaviour
                 EnemyObject.DoAttack(gameObject, Player);
                 Cooldown = 0;
             }
+
             Cooldown += Time.deltaTime;
         }
         else
