@@ -20,16 +20,15 @@ public class EnemyObject : ScriptableObject
 
     
 
-    private void BasicAgro(GameObject Enemy,GameObject target)
+    private void BasicAgro(GameObject Enemy,GameObject target,float Dst)
     {
-        float Dst = Vector3.Distance(Enemy.transform.position, target.transform.position);
        if (Dst > AttackRange )  Enemy.transform.position = Vector3.MoveTowards(Enemy.transform.position,target.transform.position,Speed*Time.deltaTime);
        
     }
 
-    public void DoAgro(GameObject Enemy,GameObject target)
+    public void DoAgro(GameObject Enemy,GameObject target,float Dst)
     {
-        if (Agro == AgroMode.Basic) BasicAgro(Enemy,target);
+        if (Agro == AgroMode.Basic) BasicAgro(Enemy,target,Dst);
     }
 
 
