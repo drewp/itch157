@@ -82557,7 +82557,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651889026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 0.02532928, y: 0.02532928, z: 0.02532928}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -83672,6 +83672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery
       objectReference: {fileID: 0}
+    - target: {fileID: 1710337509245506318, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2704010435741328829, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -83946,7 +83950,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d771277a624a6d64ab1e751bec1a6479, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
