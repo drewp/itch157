@@ -83715,6 +83715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7862810998194675068, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
+      propertyPath: PowerRefilled
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1755442453485570766, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
@@ -83974,7 +83978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7ad2819a62083439b68dd0c687be58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 29074152}
 --- !u!81 &1798538629
 AudioListener:
   m_ObjectHideFlags: 0
