@@ -54,7 +54,7 @@ public class Generator : MonoBehaviour
 
     private void Charge()
     {
-        Power += (ToRecharge/going)/2;
+        Power += (ToRecharge/145);
         going--;
     }
 }
