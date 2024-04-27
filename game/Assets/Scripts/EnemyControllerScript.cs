@@ -15,6 +15,7 @@ public class EnemyControllerScript : MonoBehaviour
     private Collider2D PlayerCollider;
     private Rigidbody2D rb;
     private float Health;
+    private float StartHealth;
     private SpriteRenderer SpriteRender;
 
 
@@ -22,7 +23,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Start()
     {
-        
+        StartHealth = Health;
         Player = GameObject.Find("mechanic_fella");
         rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
@@ -91,9 +92,10 @@ public class EnemyControllerScript : MonoBehaviour
     public void TakeDamage(float Dmg,float Knockback)
     {
         Health -= Dmg;
+        if (Health <= StartHealth / 2f)  rb.velocity = new Vector3(0f, 0f, 0f);
         Vector3 dir = Player.transform.position - transform.position;
         dir = dir.normalized;
-        rb.AddForce(-dir * Knockback);
+        rb.AddForce(-dir * Knockback*100f);
     }
 
     public void AddForce(float force,Vector3 dir)

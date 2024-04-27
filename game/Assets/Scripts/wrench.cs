@@ -16,10 +16,14 @@ public class wrench : MonoBehaviour
     }
     private void swing()
     {
-        lethal = false;
         anm.SetBool("isIdle", true);
         anm.SetBool("isSwinging", false);
+        lethal = false;
+
+
+
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -29,12 +33,22 @@ public class wrench : MonoBehaviour
             lethal = true;
             anm.SetBool("isIdle", false);
             anm.SetBool("isSwinging", true);
-            Invoke("swing", 0.15f);
+            Invoke("swing", 0.3f);
 
         }
         if (bp.holding == true)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "Enemy" && lethal)
+        {
+            other.gameObject.GetComponent<EnemyControllerScript>().TakeDamage(10f, 20f);
+            lethal = false;
         }
     }
 }
