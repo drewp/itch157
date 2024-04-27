@@ -12,7 +12,9 @@ public class batt_pickup : MonoBehaviour
     [SerializeField]
     private GameObject heldbatt;
     private bool inRange = false;
-    private bool holding = false;
+    public bool holding = false;
+    [SerializeField]
+    private GameObject wrench;
     private bool facingright = true;
     [SerializeField]
     private SpriteRenderer sr;
@@ -74,6 +76,7 @@ public class batt_pickup : MonoBehaviour
                 
 
                 holding = false;
+                wrench.SetActive(true);
                 sr.sprite = normimg;
             }
             
