@@ -9,6 +9,10 @@ public class wrench : MonoBehaviour
     private Animator anm;
     [SerializeField]
     private batt_pickup bp;
+
+    public AudioSource SwingSound;
+
+    bool Swinging = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,22 +23,21 @@ public class wrench : MonoBehaviour
         anm.SetBool("isIdle", true);
         anm.SetBool("isSwinging", false);
         lethal = false;
-
-
-
+        Swinging = false;
     }
     
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Swinging == false)
         {
             lethal = true;
             anm.SetBool("isIdle", false);
             anm.SetBool("isSwinging", true);
+            SwingSound.Play();
             Invoke("swing", 0.3f);
-
+            Swinging = true;
         }
         if (bp.holding == true)
         {
