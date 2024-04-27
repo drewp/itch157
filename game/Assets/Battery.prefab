@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5902647f9a89fd45aaa5187add6af83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerRefilled: 0
-  TimeToRefill: 0
+  PowerRefilled: 60
+  TimeToRefill: 5
   Weight: 0
 --- !u!61 &-7087230062521260659
 BoxCollider2D:
