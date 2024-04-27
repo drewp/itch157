@@ -7,8 +7,10 @@ public class Generator : MonoBehaviour
     public float Power = 1000;
     public float MaxPower = 1000;
     float ToRecharge = 0;
-    float Decay = 0;
+    float going = 0;
     public GameObject PowerUpObj;
+
+    public AudioSource ClockSound;
     
     void Start()
     {
@@ -24,14 +26,15 @@ public class Generator : MonoBehaviour
         {
             Power = MaxPower;
         }
-        Power += ToRecharge;
-        ToRecharge -= Decay;
-        if(ToRecharge <= 0)
+        if(going <= 1)
         {
-            Decay = 0;
+            going = 1;
             ToRecharge = 0;
+            Power -= 1f;
+        } else
+        {
+            Invoke("Charge", 0.1f);
         }
-        Power -= 1f;
         if(Power <= 0)
         {
             Power = 0;
@@ -43,8 +46,15 @@ public class Generator : MonoBehaviour
         if (collision.gameObject.tag == "Battery")
         {
             ToRecharge = collision.gameObject.GetComponent<BatteryScriptable>().PowerRefilled;
-            Decay = collision.gameObject.GetComponent<BatteryScriptable>().TimeToRefill;
+            going = 145;
             Destroy(collision.gameObject);
+            ClockSound.Play();
         }
+    }
+
+    private void Charge()
+    {
+        Power += (ToRecharge/going)/2;
+        going--;
     }
 }
