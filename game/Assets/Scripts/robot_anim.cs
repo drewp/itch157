@@ -8,18 +8,30 @@ public class robot_anim : MonoBehaviour
     private Animator anm;
     [SerializeField]
     private Rigidbody2D rb;
+    public EnemyControllerScript ControllScript;
     private void Update()
     {
-        if (rb.velocity.x < 0.5 && rb.velocity.x > -0.5 && rb.velocity.y < 0.5 && rb.velocity.y > -0.5)
+        if (!ControllScript.IsAttacking)
+        {
+
+
+            if (rb.velocity.x < 0.5 && rb.velocity.x > -0.5 && rb.velocity.y < 0.5 && rb.velocity.y > -0.5)
+            {
+                anm.SetBool("isWalking", false);
+                anm.SetBool("isIdle", true);
+
+            }
+            else
+            {
+                anm.SetBool("isWalking", true);
+                anm.SetBool("isIdle", false);
+            }
+        }
+        else
         {
             anm.SetBool("isWalking", false);
-            anm.SetBool("isIdle", true);
-
-        }
-        else 
-        {
-            anm.SetBool("isWalking", true);
             anm.SetBool("isIdle", false);
+            anm.SetBool("isAttacking",true);
         }
     }
 }
