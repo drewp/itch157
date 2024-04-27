@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 using UnityEngine.XR;
 
 public class batt_pickup : MonoBehaviour
@@ -13,6 +14,12 @@ public class batt_pickup : MonoBehaviour
     private bool inRange = false;
     private bool holding = false;
     private bool facingright = true;
+    [SerializeField]
+    private SpriteRenderer sr;
+    [SerializeField]
+    private Sprite holdingbattimg;
+    [SerializeField]
+    private Sprite normimg;
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Battery" && holding == false)
@@ -47,6 +54,7 @@ public class batt_pickup : MonoBehaviour
                 if (inRange == true)
                 {
                     holding = true;
+                    sr.sprite= holdingbattimg;
                     Destroy(batt);
 
                 }
@@ -66,6 +74,7 @@ public class batt_pickup : MonoBehaviour
                 
 
                 holding = false;
+                sr.sprite = normimg;
             }
             
         }
