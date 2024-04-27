@@ -15,17 +15,20 @@ public class EnemyControllerScript : MonoBehaviour
     private Collider2D PlayerCollider;
     private Rigidbody2D rb;
     private float Health;
+    private float StartHealth;
+    private SpriteRenderer SpriteRender;
 
 
 
 
     void Start()
     {
-        
-        Player = GameObject.Find("Player");
+        StartHealth = Health;
+        Player = GameObject.Find("mechanic_fella");
         rb = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
-        PlayerCollider = Player.GetComponent<BoxCollider2D>();
+        PlayerCollider = Player.transform.Find("collider").gameObject.GetComponent<BoxCollider2D>();
+        SpriteRender = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -71,7 +74,7 @@ public class EnemyControllerScript : MonoBehaviour
         }
         Vector3 dir = WanderPoint - transform.position;
         dir = dir.normalized;
-        rb.AddForce(dir * EnemyObject.Speed/Random.Range(1.7f,4f)*EnemyObject.SpeedMult * Time.deltaTime);
+        AddForce(EnemyObject.Speed/Random.Range(1.7f,4f)*EnemyObject.SpeedMult * Time.deltaTime,dir);
         if (Vector3.Distance(transform.position, WanderPoint) < 1f)
         {
             WanderCooldown += Time.deltaTime;
@@ -89,9 +92,17 @@ public class EnemyControllerScript : MonoBehaviour
     public void TakeDamage(float Dmg,float Knockback)
     {
         Health -= Dmg;
+        if (Health <= StartHealth / 2f)  rb.velocity = new Vector3(0f, 0f, 0f);
         Vector3 dir = Player.transform.position - transform.position;
         dir = dir.normalized;
-        rb.AddForce(-dir * Knockback);
+        rb.AddForce(-dir * Knockback*100f);
+    }
+
+    public void AddForce(float force,Vector3 dir)
+    {
+        rb.AddForce(force*dir);
+        if (dir.x < 0) SpriteRender.flipX =true;
+        else  SpriteRender.flipX = false;
     }
 
    
