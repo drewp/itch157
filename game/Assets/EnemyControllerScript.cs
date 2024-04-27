@@ -9,6 +9,9 @@ public class EnemyControllerScript : MonoBehaviour
     private GameObject Player;
     private bool Agroed = false;
     private float Cooldown;
+    private Vector3 WanderPoint;
+    private float WanderCooldown;
+    private float WanderWait = 2.5f;
    
 
 
@@ -24,15 +27,25 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (Agroed) EnemyObject.DoAgro(gameObject, Player);
-        float Dst = Vector3.Distance(transform.position, Player.transform.position);
-        if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
+        if (Agroed)
         {
-            EnemyObject.DoAttack(gameObject, Player);
-            Cooldown = 0;
+            WanderPoint = new Vector3(0,0,0);
+            WanderCooldown = 0f;
+            EnemyObject.DoAgro(gameObject, Player);
+            float Dst = Vector3.Distance(transform.position, Player.transform.position);
+            if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
+            {
+                EnemyObject.DoAttack(gameObject, Player);
+                Cooldown = 0;
+            }
+            Cooldown += Time.deltaTime;
         }
-        Cooldown += Time.deltaTime;
-
+        else
+        {
+            Cooldown = 0f;
+           
+            Wander();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +61,27 @@ public class EnemyControllerScript : MonoBehaviour
         {
             Agroed = false;
         }
+    }
+
+    public void Wander()
+    {
+        if (WanderPoint == new Vector3(0,0,0))
+        {
+            WanderPoint = transform.position;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, WanderPoint, EnemyObject.Speed/2f * Time.deltaTime);
+        if (Vector3.Distance(transform.position, WanderPoint) < 1f)
+        {
+            WanderCooldown += Time.deltaTime;
+
+            if (WanderCooldown > WanderWait)
+            {
+                WanderPoint = new Vector3(Random.Range(-EnemyObject.WanderRange, EnemyObject.WanderRange), Random.Range(-EnemyObject.WanderRange, EnemyObject.WanderRange), 0f);
+                WanderWait = Random.Range(1f, 3f);
+                WanderCooldown = 0f;
+            }
+        }
+      
     }
 
    
