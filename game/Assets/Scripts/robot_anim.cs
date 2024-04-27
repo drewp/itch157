@@ -10,16 +10,16 @@ public class robot_anim : MonoBehaviour
     private Rigidbody2D rb;
     private void Update()
     {
-        if (rb.velocity.x != 0 || rb.velocity.y != 0)
-        {
-            anm.SetBool("isWalking", true);
-            anm.SetBool("isIdle", false);
-
-        }
-        else if (rb.velocity.x == 0 && rb.velocity.y == 0)
+        if (rb.velocity.x < 0.5 && rb.velocity.x > -0.5 && rb.velocity.y < 0.5 && rb.velocity.y > -0.5)
         {
             anm.SetBool("isWalking", false);
             anm.SetBool("isIdle", true);
+
+        }
+        else 
+        {
+            anm.SetBool("isWalking", true);
+            anm.SetBool("isIdle", false);
         }
     }
 }
