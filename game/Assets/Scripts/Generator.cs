@@ -16,6 +16,10 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Power > MaxPower)
+        {
+            Power = MaxPower;
+        }
         Power += ToRecharge;
         ToRecharge -= Decay;
         if(ToRecharge <= 0)
