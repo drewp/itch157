@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyControllerScript : MonoBehaviour
 {
     public EnemyObject EnemyObject;
-    private CircleCollider2D AgroCollider;
     private GameObject Player;
     private bool Agroed = false;
     private float Cooldown;
@@ -19,20 +18,21 @@ public class EnemyControllerScript : MonoBehaviour
     void Start()
     {
         
-        AgroCollider = GetComponent<CircleCollider2D>();
-        AgroCollider.radius = EnemyObject.agroDst * 2f;
         Player = GameObject.Find("Player");
 
     }
 
     void Update()
     {
+        float Dst = Vector3.Distance(transform.position, Player.transform.position);
+        Agroed = false;
+        if (Dst<EnemyObject.agroDst) Agroed = true;
+
         if (Agroed)
         {
             WanderPoint = new Vector3(0,0,0);
             WanderCooldown = 0f;
             EnemyObject.DoAgro(gameObject, Player);
-            float Dst = Vector3.Distance(transform.position, Player.transform.position);
             if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
             {
                 EnemyObject.DoAttack(gameObject, Player);
@@ -48,20 +48,7 @@ public class EnemyControllerScript : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Agroed = true;
-        }
-    }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Agroed = false;
-        }
-    }
+   
 
     public void Wander()
     {
