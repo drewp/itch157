@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anm: {fileID: 1194742139}
   bp: {fileID: 1338795644}
+  SwingSound: {fileID: 0}
 --- !u!95 &1194742139
 Animator:
   serializedVersion: 5
@@ -492,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 1338795646}
   runSpeed: 5
+  PowerUpScript: {fileID: 0}
 --- !u!95 &1338795642
 Animator:
   serializedVersion: 5
@@ -546,6 +548,7 @@ MonoBehaviour:
   sr: {fileID: 1338795647}
   holdingbattimg: {fileID: 21300000, guid: 80421775175a1d94baeeec1f40149bfc, type: 3}
   normimg: {fileID: 21300000, guid: 8fd113d656b84274bbbd46981d76d76f, type: 3}
+  PickupSound: {fileID: 0}
 --- !u!58 &1338795645
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -953,6 +956,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6329979700374434498, guid: 265a1d797b21da14282014164944d0aa, type: 3}
+      propertyPath: ControllScript
+      value: 
+      objectReference: {fileID: 2006111263}
     - target: {fileID: 7625339548537698871, guid: 265a1d797b21da14282014164944d0aa, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1002,6 +1009,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265a1d797b21da14282014164944d0aa, type: 3}
+--- !u!114 &2006111263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3120544177965100662, guid: 265a1d797b21da14282014164944d0aa, type: 3}
+  m_PrefabInstance: {fileID: 1928644454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4209f6d0924c4814ba58987b70debbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

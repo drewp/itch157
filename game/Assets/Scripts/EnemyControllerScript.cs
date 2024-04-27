@@ -17,6 +17,7 @@ public class EnemyControllerScript : MonoBehaviour
     private float Health;
     private float StartHealth;
     private SpriteRenderer SpriteRender;
+    [HideInInspector] public bool IsAttacking;
 
 
 
@@ -51,6 +52,8 @@ public class EnemyControllerScript : MonoBehaviour
             EnemyObject.DoAgro(gameObject, Player,Dst);
             if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
             {
+                IsAttacking = true;
+                Invoke("AttackOver", .4f);
                 EnemyObject.DoAttack(gameObject, Player);
                 Cooldown = 0;
             }
@@ -64,6 +67,11 @@ public class EnemyControllerScript : MonoBehaviour
         }
     }
 
+
+    private void AttackOver()
+    {
+        IsAttacking = false;
+    }
    
 
     public void Wander()
