@@ -11,7 +11,9 @@ public class EnemyControllerScript : MonoBehaviour
     private Vector3 WanderPoint;
     private float WanderCooldown;
     private float WanderWait = 2.5f;
-   
+    private Collider2D Collider;
+    private Collider2D PlayerCollider;
+
 
 
 
@@ -19,12 +21,20 @@ public class EnemyControllerScript : MonoBehaviour
     {
         
         Player = GameObject.Find("Player");
-
+        Collider = GetComponent<BoxCollider2D>();
+        PlayerCollider = Player.GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
-        float Dst = Vector3.Distance(transform.position, Player.transform.position);
+        Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);
+        Vector3 PlayerClosestPoint = PlayerCollider.ClosestPoint(MyClosestPoint);
+         
+        
+        
+        float Dst = Vector3.Distance(MyClosestPoint,PlayerClosestPoint) ;
+       
+        
         Agroed = false;
         if (Dst<EnemyObject.agroDst) Agroed = true;
 
@@ -32,7 +42,7 @@ public class EnemyControllerScript : MonoBehaviour
         {
             WanderPoint = new Vector3(0,0,0);
             WanderCooldown = 0f;
-            EnemyObject.DoAgro(gameObject, Player);
+            EnemyObject.DoAgro(gameObject, Player,Dst);
             if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
             {
                 EnemyObject.DoAttack(gameObject, Player);
