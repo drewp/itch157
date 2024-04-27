@@ -429,6 +429,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &304833924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 304833926}
+  - component: {fileID: 304833925}
+  m_Layer: 0
+  m_Name: PowerUpObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &304833925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304833924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac17fc58817fac54792ed837668f980e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnergyDrainMod: 1
+  ClockSpeedMod: 1
+  AttackSpeedMod: 1
+  HealthAddMod: 1
+  BatteryDropChanceMod: 1
+  BatteryRechargeMod: 1
+  ClockPowerAddMod: 1
+  DamageMod: 1
+  MovementSpeedMod: 1
+  PushBatteryMod: 1
+  BatteryCarrySpeedMod: 1
+  BatteryThrowingDistanceAddMod: 1
+  EnemyExplosionChance: 1
+  SubTotalDamageTakenMod: 1
+  ClockPowerMod: 1
+  ImmunityFramesAddMod: 1
+  BatteryExplosionChance: 1
+  BatteryHitMoveMod: 1
+  FullyRechargeChanceMod: 1
+  MechanicsGambit: 0
+  ImHungry: 0
+--- !u!4 &304833926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304833924}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.3134985, y: -2.552015, z: -0.14428845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345546289
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +963,7 @@ Transform:
   m_GameObject: {fileID: 931323151}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0854114, y: -2.46, z: 0.035275795}
+  m_LocalPosition: {x: 1.0854115, y: -2.46, z: 0.035275787}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -920,6 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 931323156}
   runSpeed: 5
+  PowerUpScript: {fileID: 304833924}
 --- !u!114 &931323161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 1000
   MaxPower: 1000
+  PowerUpObj: {fileID: 304833924}
 --- !u!4 &1135088953
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,6 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 100139497}
+  PowerUpObj: {fileID: 304833924}
 --- !u!61 &1135088955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2124,5 +2192,6 @@ SceneRoots:
   - {fileID: 984554624}
   - {fileID: 1135088953}
   - {fileID: 1228615119}
-  - {fileID: 931323159}
   - {fileID: 1169696217}
+  - {fileID: 931323159}
+  - {fileID: 304833926}

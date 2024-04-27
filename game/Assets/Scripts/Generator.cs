@@ -8,14 +8,18 @@ public class Generator : MonoBehaviour
     public float MaxPower = 1000;
     float ToRecharge = 0;
     float Decay = 0;
+    public GameObject PowerUpObj;
+    
     void Start()
     {
-        
+        PowerUpObj = GameObject.Find("PowerUpObject");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        var BaseMaxPower = 1000 * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerAddMod;
+        MaxPower = BaseMaxPower * PowerUpObj.GetComponent<PowerUpVariables>().EnergyDrainMod;
         if (Power > MaxPower)
         {
             Power = MaxPower;
@@ -36,10 +40,8 @@ public class Generator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "Battery")
         {
-            Debug.Log(collision.gameObject.tag);
             ToRecharge = collision.gameObject.GetComponent<BatteryScriptable>().PowerRefilled;
             Decay = collision.gameObject.GetComponent<BatteryScriptable>().TimeToRefill;
             Destroy(collision.gameObject);

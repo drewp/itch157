@@ -9,9 +9,10 @@ public class Player_movement : MonoBehaviour
     private Rigidbody2D rigidBody;
     [SerializeField]
     private float runSpeed = 10.0f;
+    public GameObject PowerUpScript;
     
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * PowerUpScript.GetComponent<PowerUpVariables>().MovementSpeedMod;
     }
 }
