@@ -14,6 +14,7 @@ public class EnemyControllerScript : MonoBehaviour
     private Collider2D Collider;
     private Collider2D PlayerCollider;
     private Rigidbody2D rb;
+    private float Health;
 
 
 
@@ -83,6 +84,14 @@ public class EnemyControllerScript : MonoBehaviour
             }
         }
       
+    }
+
+    public void TakeDamage(float Dmg,float Knockback)
+    {
+        Health -= Dmg;
+        Vector3 dir = Player.transform.position - transform.position;
+        dir = dir.normalized;
+        rb.AddForce(-dir * Knockback);
     }
 
    
