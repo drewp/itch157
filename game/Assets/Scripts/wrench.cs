@@ -7,6 +7,8 @@ public class wrench : MonoBehaviour
     private bool lethal = false;
     [SerializeField]
     private Animator anm;
+    [SerializeField]
+    private batt_pickup bp;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,12 @@ public class wrench : MonoBehaviour
             lethal = true;
             anm.SetBool("isIdle", false);
             anm.SetBool("isSwinging", true);
-            Invoke("swing", 2.0f);
+            Invoke("swing", 0.15f);
 
+        }
+        if (bp.holding == true)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

@@ -268,6 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldbatt: {fileID: 711763283573990739, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
+  holding: 0
+  wrench: {fileID: 1082697769}
   sr: {fileID: 495393116}
   holdingbattimg: {fileID: 21300000, guid: 80421775175a1d94baeeec1f40149bfc, type: 3}
   normimg: {fileID: 21300000, guid: 8fd113d656b84274bbbd46981d76d76f, type: 3}
@@ -458,6 +460,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1082697771}
   - component: {fileID: 1082697770}
+  - component: {fileID: 1082697772}
+  - component: {fileID: 1082697773}
   m_Layer: 0
   m_Name: wrench
   m_TagString: Untagged
@@ -532,6 +536,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1301054951}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1082697772
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082697769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a31a87a52f225449bfbf77c7e14fe89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1082697773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082697769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4adc7a427044b6d45837ee738cd5fc24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anm: {fileID: 1082697772}
+  bp: {fileID: 495393118}
 --- !u!1 &1301054950
 GameObject:
   m_ObjectHideFlags: 0
