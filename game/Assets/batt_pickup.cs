@@ -22,6 +22,8 @@ public class batt_pickup : MonoBehaviour
     private Sprite holdingbattimg;
     [SerializeField]
     private Sprite normimg;
+
+    public AudioSource PickupSound;
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Battery" && holding == false)
@@ -50,15 +52,14 @@ public class batt_pickup : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(holding);
             if (holding == false)
             {
                 if (inRange == true)
                 {
+                    PickupSound.Play();
                     holding = true;
                     sr.sprite= holdingbattimg;
                     Destroy(batt);
-
                 }
             }
             else
