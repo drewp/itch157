@@ -61,18 +61,19 @@ public class EnemyControllerScript : MonoBehaviour
     }
     void death()
     {
-        int RS = Random.Range(0, 100);
+        int RS = Random.Range(0, 500);
         if (RS <= 33 + PowerUpVars.GetComponent<PowerUpVariables>().BatteryDropChanceMod)
         {
             GameObject NewBat = Instantiate(Battery);
             NewBat.transform.position = transform.position;
         }
         GameObject PPowerup = PowerUpVars.GetComponent<PowerUpVariables>().OnDrop();
-        if (PPowerup != null)
+        if (PPowerup != null && Random.Range(1, 7) == Random.Range(1, 10))
         {
             GameObject Temp = Instantiate(PPowerup);
             Temp.transform.position = transform.position;
         }
+        Debug.Log("Test");
         Destroy(gameObject);
     }
     void Update()
