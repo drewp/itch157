@@ -22,7 +22,6 @@ public class Timer : MonoBehaviour
         Invoke("tick", 2 - PowerUpObj.GetComponent<PowerUpVariables>().ClockSpeedMod);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
