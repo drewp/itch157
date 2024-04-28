@@ -74,16 +74,12 @@ public class PowerUpVariables : MonoBehaviour
         {
             case 1:
                 return CommonPowerups[Random.Range(0, CommonPowerups.Length)];
-                break;
             case 2:
-                return UncommonPowerups[Random.Range(0, CommonPowerups.Length)];
-                break;
+                return UncommonPowerups[Random.Range(0, UncommonPowerups.Length)];
             case 3:
-                return RarePowerups[Random.Range(0, CommonPowerups.Length)];
-                break;
+                return RarePowerups[Random.Range(0, RarePowerups.Length)];
             case 4:
-                return LegendaryPowerups[Random.Range(0, CommonPowerups.Length)];
-                break;
+                return LegendaryPowerups[Random.Range(0, LegendaryPowerups.Length)];
         }
         return null;
     }
