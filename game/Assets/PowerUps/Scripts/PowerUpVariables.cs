@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PowerUpVariables : MonoBehaviour
 {
     public float EnergyDrainMod; // Speed Of Light -1
@@ -28,10 +29,10 @@ public class PowerUpVariables : MonoBehaviour
     public bool MechanicsGambit;
     public bool ImHungry;
 
-    public GameObject[] CommonPowerups;
-    public GameObject[] UncommonPowerups;
-    public GameObject[] RarePowerups;
-    public GameObject[] LegendaryPowerups;
+    public List<GameObject> CommonPowerups;
+    public List<GameObject> UncommonPowerups;
+    public List<GameObject> RarePowerups;
+    public List<GameObject> LegendaryPowerups;
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class PowerUpVariables : MonoBehaviour
     int DropChance()
     {
         var Chance = Random.Range(0, 100);
-        if (Chance <= 15)
+        if (Chance <= 150)
         {
             if (Chance <= 5)
             {
@@ -73,13 +74,13 @@ public class PowerUpVariables : MonoBehaviour
         switch (D)
         {
             case 1:
-                return CommonPowerups[Random.Range(0, CommonPowerups.Length)];
+                return CommonPowerups[Random.Range(0, CommonPowerups.Count)];
             case 2:
-                return UncommonPowerups[Random.Range(0, UncommonPowerups.Length)];
+                return UncommonPowerups[Random.Range(0, UncommonPowerups.Count)];
             case 3:
-                return RarePowerups[Random.Range(0, RarePowerups.Length)];
+                return RarePowerups[Random.Range(0, RarePowerups.Count)];
             case 4:
-                return LegendaryPowerups[Random.Range(0, LegendaryPowerups.Length)];
+                return LegendaryPowerups[Random.Range(0, LegendaryPowerups.Count)];
         }
         return null;
     }
