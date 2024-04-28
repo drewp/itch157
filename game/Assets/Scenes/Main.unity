@@ -166,7 +166,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -83717,7 +83717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862810998194675068, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
       propertyPath: PowerRefilled
-      value: 100
+      value: 1009
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
