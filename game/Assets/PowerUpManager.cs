@@ -36,6 +36,9 @@ public class PowerUpManager : MonoBehaviour
                     //Fast Feet
                     PowerUpVars.GetComponent<PowerUpVariables>().MovementSpeedMod += 0.07f;
                     break;
+                case 2:
+                    PowerUpVars.GetComponent<PowerUpVariables>().ClockSpeedMod += 0.10f;
+                    break;
             }
             Destroy(gameObject);
         }
