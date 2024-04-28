@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 29074155}
   - component: {fileID: 29074154}
   - component: {fileID: 29074153}
+  - component: {fileID: 29074163}
   m_Layer: 0
   m_Name: mechanic_fella
   m_TagString: Player
@@ -462,6 +463,19 @@ Transform:
   - {fileID: 267169080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29074163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29074152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b133efe023960449904026c6ce54c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpbarImg: {fileID: 40169435}
 --- !u!1 &40169433
 GameObject:
   m_ObjectHideFlags: 0

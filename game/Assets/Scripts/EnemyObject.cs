@@ -41,7 +41,8 @@ public class EnemyObject : ScriptableObject
 
     private void BasicAttack(GameObject Enemy, GameObject target)
     {
-        HealthScript HealthScript = target.GetComponent<HealthScript>();
+        
+        playerhealth HealthScript = target.GetComponent<playerhealth>();
         if (HealthScript != null ) HealthScript.TakeDamage(Dmg);
         
     }
