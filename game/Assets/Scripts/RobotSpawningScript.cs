@@ -30,12 +30,12 @@ public class RobotSpawningScript : MonoBehaviour
         float y = 0;
         GameObject Robot = Robots[Random.Range(0, Robots.Count)];
         int RX = Random.Range(0, 2);
-        if ( RX== 0) {  x = transform.position.x + Random.Range(CamWidth / 2 +3f, CamWidth / 2 + 3f+SpawnRange); }
-        else { x = transform.position.x +Random.Range(-CamWidth / 2 - 3f - SpawnRange, -CamWidth / 2 - 3f); }
+        if ( RX== 0) {  x = Camera.transform.position.x + Random.Range(CamWidth / 2 +3f, CamWidth / 2 + 3f+SpawnRange); }
+        else { x = Camera.transform.position.x +Random.Range(-CamWidth / 2 - 3f - SpawnRange, -CamWidth / 2 - 3f); }
         
         int RY = Random.Range(0, 2);
-        if (RY == 0) {  y = transform.position.y + Random.Range(CamHeight / 2 + 3f, CamHeight / 2 + 3f+SpawnRange); }
-        else {  y = transform.position.y + Random.Range(-CamHeight / 2 - 3f - SpawnRange, -CamHeight / 2 - 3f); };
+        if (RY == 0) {  y = Camera.transform.position.y + Random.Range(CamHeight / 2 + 3f, CamHeight / 2 + 3f+SpawnRange); }
+        else {  y = Camera.transform.position.y + Random.Range(-CamHeight / 2 - 3f - SpawnRange, -CamHeight / 2 - 3f); };
 
         GameObject NewRobo = Instantiate(Robot);
         NewRobo.transform.position = new Vector3(x,y,0);
