@@ -46,8 +46,11 @@ public class PowerUpManager : MonoBehaviour
                 case 4:
                     PowerUpVars.GetComponent<PowerUpVariables>().ClockPowerAddMod += 0.10f;
                     break;
+                case 5:
+                    PowerUpVars.GetComponent<PowerUpVariables>().AttackSpeedMod += 0.10f;
+                    break;
             }
-            CanvasThing.GetComponent<PowerUpUi>().PickedUpPowerUp(PowerUpVars.GetComponent<SpriteRenderer>().sprite);
+            GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>().PickedUpPowerUp(GetComponent<SpriteRenderer>().sprite);
             Destroy(gameObject);
         }
     }

@@ -13,9 +13,12 @@ public class wrench : MonoBehaviour
     public AudioSource SwingSound;
 
     bool Swinging = false;
+
+    public GameObject PowerUpVars;
     // Start is called before the first frame update
     void Start()
     {
+        PowerUpVars = GameObject.Find("PowerUpObject");
     }
     private void swing()
     {
@@ -35,7 +38,7 @@ public class wrench : MonoBehaviour
             anm.SetBool("isIdle", false);
             anm.SetBool("isSwinging", true);
             SwingSound.Play();
-            Invoke("swing", 0.3f);
+            Invoke("swing", 0.3f - PowerUpVars.GetComponent<PowerUpVariables>().AttackSpeedMod/10);
             Swinging = true;
         }
         if (bp.holding == true)
