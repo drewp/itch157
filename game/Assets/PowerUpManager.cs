@@ -6,8 +6,10 @@ public class PowerUpManager : MonoBehaviour
 {
     public int Type = 0;
     public GameObject PowerUpVars;
+    public GameObject PowerPickupSound;
     void Start()
     {
+        PowerPickupSound = GameObject.Find("PickUpPowerUp");
         PowerUpVars = GameObject.Find("PowerUpObject");
         switch (Type)
         {
@@ -27,6 +29,7 @@ public class PowerUpManager : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             PowerUpVars = GameObject.Find("PowerUpObject");
+            PowerPickupSound.GetComponent<AudioSource>().Play();
             switch (Type)
             {
                 case 1:
