@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Power : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Power : MonoBehaviour
     private float current_power = 1;
     [SerializeField]
     private Generator gen;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +24,9 @@ public class Power : MonoBehaviour
     {
         current_power = gen.Power / gen.MaxPower;
         powerbar.fillAmount = current_power;
+        if(current_power == 0)
+        {
+            SceneManager.LoadScene("death_menu");
+        }
     }
 }
