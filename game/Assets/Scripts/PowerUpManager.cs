@@ -9,7 +9,7 @@ public class PowerUpManager : MonoBehaviour
     public GameObject PowerPickupSound;
     public GameObject CanvasThing;
 
-    public int[] PickedUp = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    int[] PickedUp = new int[17];
     void Start()
     {
         PowerPickupSound = GameObject.Find("PickUpPowerUp");
@@ -17,7 +17,10 @@ public class PowerUpManager : MonoBehaviour
     }
     void Update()
     {
-        
+        for(int i = 0; i < 16; i++)
+        {
+            PickedUp[i] = 0;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -152,6 +155,7 @@ public class PowerUpManager : MonoBehaviour
                 case 14:
                     PowerUpVars.GetComponent<PowerUpVariables>().FullyRechargeChanceMod += 2;
                     color = new Color(128, 0, 128);
+                    Debug.Log(Type + "  " + PickedUp.Length);
                     if (PickedUp[Type] < 1)
                     {
                         PUI.DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "Cosmic Rays", "There is an extremley low chance every second to fully reacharge the clock", color);
