@@ -26,7 +26,7 @@ public class Player_movement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * RunTime;
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * RunTime * PowerUpScript.GetComponent<PowerUpVariables>().MovementSpeedMod;
         if(Mathf.Abs(rigidBody.velocity.magnitude)>=0.1f)
         {
             TimeRan++;

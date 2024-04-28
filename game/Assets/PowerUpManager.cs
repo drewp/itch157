@@ -21,4 +21,20 @@ public class PowerUpManager : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            PowerUpVars = GameObject.Find("PowerUpObject");
+            switch (Type)
+            {
+                case 1:
+                    //Fast Feet
+                    PowerUpVars.GetComponent<PowerUpVariables>().MovementSpeedMod += 0.07f;
+                    break;
+            }
+            Destroy(gameObject);
+        }
+    }
 }

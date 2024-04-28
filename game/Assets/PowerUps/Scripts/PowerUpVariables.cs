@@ -46,7 +46,7 @@ public class PowerUpVariables : MonoBehaviour
     int DropChance()
     {
         var Chance = Random.Range(0, 100);
-        if (Chance <= 150)
+        if (Chance <= 15)
         {
             if (Chance <= 5)
             {
@@ -67,7 +67,7 @@ public class PowerUpVariables : MonoBehaviour
     public GameObject OnDrop()
     {
         int D = DropChance();
-        if(D == 0)
+        if (D == 0)
         {
             return null;
         }
