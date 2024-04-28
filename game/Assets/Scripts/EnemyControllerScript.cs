@@ -61,12 +61,13 @@ public class EnemyControllerScript : MonoBehaviour
                 GameObject NewBat = Instantiate(Battery);
                 NewBat.transform.position = transform.position;
             }
-            Destroy(gameObject);
             GameObject PPowerup = PowerUpVars.GetComponent<PowerUpVariables>().OnDrop();
-            if(PPowerup != null)
+            if (PPowerup != null)
             {
-                Instantiate(PPowerup, this.transform);
+                GameObject Temp = Instantiate(PPowerup);
+                Temp.transform.position = transform.position;
             }
+            Destroy(gameObject);
         }
             
         Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);
