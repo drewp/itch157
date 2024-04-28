@@ -42,6 +42,9 @@ public class PowerUpManager : MonoBehaviour
                 case 3:
                     PowerUpVars.GetComponent<PowerUpVariables>().EnergyDrainMod += 0.10f;
                     break;
+                case 4:
+                    PowerUpVars.GetComponent<PowerUpVariables>().ClockPowerAddMod += 0.10f;
+                    break;
             }
             Destroy(gameObject);
         }
