@@ -154,8 +154,9 @@ public class EnemyControllerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Battery")
+        if (other.gameObject.tag == "Battery" && other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude>.1f)
         {
+           
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
