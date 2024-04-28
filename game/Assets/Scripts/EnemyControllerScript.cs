@@ -90,7 +90,7 @@ public class EnemyControllerScript : MonoBehaviour
             {
                 IsAttacking = true;
                 Invoke("AttackOver", .54f);
-                EnemyObject.DoAttack(gameObject, Player);
+                Invoke("DoDoAttack",.27f);
                 Cooldown = 0;
             }
 
@@ -105,7 +105,11 @@ public class EnemyControllerScript : MonoBehaviour
         }
     }
 
+    private void DoDoAttack()
+    {
+        EnemyObject.DoAttack(gameObject, Player);
 
+    }
     private void AttackOver()
     {
 
