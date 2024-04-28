@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    public float Power = 10000;
-    public float MaxPower = 10000;
+    public float Power = 3500;
+    public float MaxPower = 3500;
     float ToRecharge = 0;
     float going = 0;
     public GameObject PowerUpObj;
@@ -15,13 +15,13 @@ public class Generator : MonoBehaviour
     void Start()
     {
         PowerUpObj = GameObject.Find("PowerUpObject");
-        Power = 10000;
+        Power = 3500;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        var BaseMaxPower = 10000 * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerAddMod;
+        var BaseMaxPower = 3500 * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerAddMod;
         MaxPower = BaseMaxPower * PowerUpObj.GetComponent<PowerUpVariables>().EnergyDrainMod;
         if (Power > MaxPower)
         {

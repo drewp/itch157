@@ -173,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 1000
   MaxPower: 1000
+  PowerUpObj: {fileID: 0}
+  ClockSound: {fileID: 0}
 --- !u!61 &334279494
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -816,6 +816,11 @@ MonoBehaviour:
   FullyRechargeChanceMod: 1
   MechanicsGambit: 0
   ImHungry: 0
+  CommonPowerups:
+  - {fileID: 5621859326399383617, guid: 16a821977164f0f4e862a3977e32bfb2, type: 3}
+  UncommonPowerups: []
+  RarePowerups: []
+  LegendaryPowerups: []
 --- !u!4 &304833926
 Transform:
   m_ObjectHideFlags: 0
