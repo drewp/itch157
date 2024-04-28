@@ -26,8 +26,15 @@ public class Player_movement : MonoBehaviour
             Step.Play();
         } else
         {
-            //Step.Stop();
-            walking = false;
+            if(walking == true && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+
+            } else
+            {
+                Step.Stop();
+                walking = false;
+            }
+
         }
     }
 }
