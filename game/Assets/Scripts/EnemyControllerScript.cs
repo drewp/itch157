@@ -152,5 +152,14 @@ public class EnemyControllerScript : MonoBehaviour
         else  SpriteRender.flipX = false;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Battery")
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
    
 }
