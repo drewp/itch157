@@ -23,7 +23,7 @@ public class PowerUpUi : MonoBehaviour
         }
 
     }
-    public void PickedUpPowerUp(Sprite sprite)
+    public void PickedUpPowerUp(Sprite sprite,Color TextColor)
     {
         Debug.Log(sprite);
         int index = PowerUpSprites.IndexOf(sprite);
@@ -36,6 +36,7 @@ public class PowerUpUi : MonoBehaviour
             PowerUpSprites.Add(sprite);
             PowerUpHolders[PlaceInHolderOn].GetComponent<Image>().sprite = sprite;
             PowerUpHolders[PlaceInHolderOn].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = "1";
+            PowerUpHolders[PlaceInHolderOn].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().color = TextColor;
             PowerUpHolders[PlaceInHolderOn].SetActive(true);
             PlaceInHolderOn++;
         }
