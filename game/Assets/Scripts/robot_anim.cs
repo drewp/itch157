@@ -9,6 +9,7 @@ public class robot_anim : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     public EnemyControllerScript ControllScript;
+
     private void Update()
     {
         if (!ControllScript.IsAttacking)

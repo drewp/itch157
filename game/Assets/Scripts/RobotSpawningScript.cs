@@ -18,8 +18,8 @@ public class RobotSpawningScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        int SP = Random.Range(0, 200);
-        if (SP == 69f)
+        int SP = Random.Range(0, 50);
+        if (SP == 40)
         {
             SpawnEnemy();
         }

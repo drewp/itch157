@@ -14,7 +14,6 @@ public class AriIHateyou : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GetComponent<AudioSource>().isPlaying);
         if (Mathf.Abs(Rigidbody.velocity.magnitude) > 0  && walking == false)
         {
             GetComponent<AudioSource>().Play();
