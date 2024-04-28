@@ -816,6 +816,10 @@ MonoBehaviour:
   FullyRechargeChanceMod: 1
   MechanicsGambit: 0
   ImHungry: 0
+  CommonPowerups: []
+  UncommonPowerups: []
+  RarePowerups: []
+  LegendaryPowerups: []
 --- !u!4 &304833926
 Transform:
   m_ObjectHideFlags: 0
