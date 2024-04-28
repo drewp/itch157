@@ -20,9 +20,9 @@ public class PowerUpUi : MonoBehaviour
     }
     public void PickedUpPowerUp(Sprite sprite)
     {
-        if (PowerUpSprites.Find(sprite)!=null)
+        /*if (PowerUpSprites.Find(sprite)!=null)
         {
 
-        }
+        }*/
     } 
 }
