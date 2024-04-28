@@ -34,9 +34,14 @@ public class PowerUpVariables : MonoBehaviour
     public List<GameObject> RarePowerups;
     public List<GameObject> LegendaryPowerups;
 
+    public int[] PickedUp = new int[17];
+
     void Start()
     {
-        
+        for (int i = 0; i < 16; i++)
+        {
+            PickedUp[i] = 0;
+        }
     }
     void Update()
     {
