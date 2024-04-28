@@ -67,6 +67,9 @@ public class PowerUpManager : MonoBehaviour
                 case 11:
                     PowerUpVars.GetComponent<PowerUpVariables>().BatteryThrowingDistanceAddMod += 0.3f;
                     break;
+                case 12:
+                    PowerUpVars.GetComponent<PowerUpVariables>().SubTotalDamageTakenMod += 0.1f;
+                    break;
             }
             GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>().PickedUpPowerUp(GetComponent<SpriteRenderer>().sprite);
             Destroy(gameObject);

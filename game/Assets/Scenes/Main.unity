@@ -85806,6 +85806,7 @@ MonoBehaviour:
   UncommonPowerups:
   - {fileID: 5262568232002700838, guid: 779fce9bf0d983f4e8546b8031c31414, type: 3}
   - {fileID: 5071204314644552685, guid: 084fce766d85a2348a988b5e6b0cd617, type: 3}
+  - {fileID: 6682581053078033869, guid: 6cf9f444686ba8e479384fe63a2e1fc4, type: 3}
   RarePowerups: []
   LegendaryPowerups: []
 --- !u!4 &856292581
