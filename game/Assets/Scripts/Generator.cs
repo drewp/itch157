@@ -22,7 +22,7 @@ public class Generator : MonoBehaviour
     void FixedUpdate()
     {
         var BaseMaxPower = 3500 * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerAddMod;
-        MaxPower = BaseMaxPower * PowerUpObj.GetComponent<PowerUpVariables>().EnergyDrainMod;
+        MaxPower = BaseMaxPower * PowerUpObj.GetComponent<PowerUpVariables>().EnergyDrainMod * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerMod;
         if (Power > MaxPower)
         {
             Power = MaxPower;
