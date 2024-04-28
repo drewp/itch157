@@ -9,8 +9,8 @@ public class EnemyControllerScript : MonoBehaviour
     private bool Agroed = false;
     private float Cooldown;
     private Vector3 WanderPoint;
-    private float WanderCooldown;
-    private float WanderWait = 2.5f;
+    private float WanderCooldown = 5f;
+    private float WanderWait = 0;
     private Collider2D Collider;
     private Collider2D PlayerCollider;
     private Rigidbody2D rb;
@@ -36,6 +36,7 @@ public class EnemyControllerScript : MonoBehaviour
         PlayerCollider = Player.transform.Find("collider").gameObject.GetComponent<BoxCollider2D>();
         SpriteRender = GetComponent<SpriteRenderer>();
         Health = EnemyObject.Health;
+        
     }
 
     void FixedUpdate()
@@ -105,6 +106,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     public void Wander()
     {
+       
         if (WanderPoint == new Vector3(0,0,0))
         {
             WanderPoint = transform.position;
@@ -114,11 +116,13 @@ public class EnemyControllerScript : MonoBehaviour
         AddForce(EnemyObject.Speed/Random.Range(1.7f,4f)*EnemyObject.SpeedMult * Time.deltaTime,dir);
         if (Vector3.Distance(transform.position, WanderPoint) < 1f)
         {
+
             WanderCooldown += Time.deltaTime;
 
             if (WanderCooldown > WanderWait)
             {
-                WanderPoint = new Vector3(Random.Range(-EnemyObject.WanderRange, EnemyObject.WanderRange), Random.Range(-EnemyObject.WanderRange, EnemyObject.WanderRange), 0f);
+
+                WanderPoint = new Vector3(Random.Range(transform.position.x-EnemyObject.WanderRange, transform.position.x+EnemyObject.WanderRange), Random.Range(transform.position.y - EnemyObject.WanderRange, transform.position.y+EnemyObject.WanderRange), 0f);
                 WanderWait = Random.Range(1f, 3f);
                 WanderCooldown = 0f;
             }
@@ -138,6 +142,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     public void AddForce(float force,Vector3 dir)
     {
+
         rb.AddForce(force*dir);
         if (dir.x < 0) SpriteRender.flipX =true;
         else  SpriteRender.flipX = false;
