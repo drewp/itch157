@@ -13,6 +13,7 @@ public class MainMenuScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         InfoScreen = transform.Find("InfoScreen").gameObject;
         MainScreen = transform.Find("MainScreen").gameObject;
         InfoScreen.SetActive(false);
@@ -20,6 +21,8 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
+        Cursor.visible = true;
+
         SceneManager.LoadScene(MainGameScene);
     }
     public void ChangeScreen()
@@ -29,9 +32,13 @@ public class MainMenuScript : MonoBehaviour
         {
             MainScreen.SetActive(true);
             InfoScreen.SetActive(false);
+        Cursor.visible = false;
+
         }
         else
         {
+            Cursor.visible = true;
+
             InfoScreen.SetActive(true);
             MainScreen.SetActive(false);
         }
