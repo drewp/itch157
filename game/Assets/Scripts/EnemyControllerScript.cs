@@ -23,6 +23,8 @@ public class EnemyControllerScript : MonoBehaviour
     public AudioSource RoboHitSound;
     private ParticleSystem BloodParticles;
     private bool FacingRight = true;
+    [SerializeField]
+    robot_anim ranm;
 
     GameObject PowerUpVars;
     public AudioSource DeathSound;
@@ -57,25 +59,32 @@ public class EnemyControllerScript : MonoBehaviour
         int RS = Random.Range(0, 1500);
         if (RS == 10&& Dst < 30) RoboSound.Play();
     }
+    void death()
+    {
+        int RS = Random.Range(0, 100);
+        if (RS <= 33 + PowerUpVars.GetComponent<PowerUpVariables>().BatteryDropChanceMod)
+        {
+            GameObject NewBat = Instantiate(Battery);
+            NewBat.transform.position = transform.position;
+        }
+        GameObject PPowerup = PowerUpVars.GetComponent<PowerUpVariables>().OnDrop();
+        if (PPowerup != null)
+        {
+            GameObject Temp = Instantiate(PPowerup);
+            Temp.transform.position = transform.position;
+        }
+        Destroy(gameObject);
+    }
     void Update()
     {
         
         if (Health <= 0)
         {
-            int RS = Random.Range(0, 100);
-            if (RS <= 33 + PowerUpVars.GetComponent<PowerUpVariables>().BatteryDropChanceMod)
-            {
-                GameObject NewBat = Instantiate(Battery);
-                NewBat.transform.position = transform.position;
-            }
-            GameObject PPowerup = PowerUpVars.GetComponent<PowerUpVariables>().OnDrop();
-            if (PPowerup != null)
-            {
-                GameObject Temp = Instantiate(PPowerup);
-                Temp.transform.position = transform.position;
-            }
+            
             DeathSound.Play();
-            Destroy(gameObject);
+            IsAttacking = false;
+            ranm.deathanim();
+            Invoke("death", 0.75f);
         }
             
         Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);
@@ -188,7 +197,7 @@ public class EnemyControllerScript : MonoBehaviour
         {
             DeathSound.Play();
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            Invoke("death", 0.75f);
         }
     }
 

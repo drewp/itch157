@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class robot_anim : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class robot_anim : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     public EnemyControllerScript ControllScript;
-
+    private bool dying = false;
     private void Update()
     {
-        if (!ControllScript.IsAttacking)
+        if (!ControllScript.IsAttacking && !dying)
         {
 
             anm.SetBool("isAttacking", false);
@@ -21,6 +22,7 @@ public class robot_anim : MonoBehaviour
             {
                 anm.SetBool("isWalking", false);
                 anm.SetBool("isIdle", true);
+                anm.SetBool("isAttacking", false);
 
 
             }
@@ -28,14 +30,25 @@ public class robot_anim : MonoBehaviour
             {
                 anm.SetBool("isWalking", true);
                 anm.SetBool("isIdle", false);
+                anm.SetBool("isAttacking", false);
 
             }
         }
-        else
+        else if (!dying)
         {
             anm.SetBool("isWalking", false);
             anm.SetBool("isIdle", false);
             anm.SetBool("isAttacking",true);
         }
+        
+    }
+    public void deathanim()
+    {
+        Debug.Log("die");
+        dying = true;
+        anm.SetBool("isAttacking", false);
+        anm.SetBool("isWalking", false);
+        anm.SetBool("isIdle", false);
+        anm.SetBool("isDead", true);
     }
 }

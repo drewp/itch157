@@ -5070,7 +5070,9 @@ MonoBehaviour:
   Battery: {fileID: 711763283573990739, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
   RoboSound: {fileID: 4562486445880098794}
   RoboHitSound: {fileID: 8705777101707290766}
+  ranm: {fileID: 6329979700374434498}
   DeathSound: {fileID: 0}
+  SwingSound: {fileID: 0}
 --- !u!50 &4788217293595974180
 Rigidbody2D:
   serializedVersion: 4
