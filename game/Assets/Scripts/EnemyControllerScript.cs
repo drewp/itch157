@@ -59,8 +59,8 @@ public class EnemyControllerScript : MonoBehaviour
         
         if (Health <= 0)
         {
-            int RS = Random.Range(1, 3);
-            if (RS == 1)
+            int RS = Random.Range(0, 100);
+            if (RS <= 33 + PowerUpVars.GetComponent<PowerUpVariables>().BatteryDropChanceMod)
             {
                 GameObject NewBat = Instantiate(Battery);
                 NewBat.transform.position = transform.position;
