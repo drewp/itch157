@@ -53,7 +53,11 @@ public class Player_movement : MonoBehaviour
         }
         if (TimeRan >= 50)
         {
-            Camera.GetComponent<Camera>().orthographicSize = 5.0f + rigidBody.velocity.magnitude / 12;
+            Camera.GetComponent<Camera>().orthographicSize = 5.0f + rigidBody.velocity.magnitude / 20;
+            if (Camera.GetComponent<Camera>().orthographicSize >= 6.0f)
+            {
+                Camera.GetComponent<Camera>().orthographicSize = 6;
+            }
         }
     }
     void DoShake()
