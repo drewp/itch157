@@ -39,8 +39,8 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (Health <= 0)
         {
-            int RS = Random.Range(1, 5);
-            if (RS == 2)
+            int RS = Random.Range(1, 3);
+            if (RS == 1)
             {
                 GameObject NewBat = Instantiate(Battery);
                 NewBat.transform.position = transform.position;
