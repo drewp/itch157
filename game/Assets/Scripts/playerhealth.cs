@@ -12,12 +12,15 @@ public class playerhealth : MonoBehaviour
     private Image hpbarImg;
 
     public GameObject PowerUpVars;
+    public AudioSource PlayerDamage;
     private void Start()
     {
         PowerUpVars = GameObject.Find("PowerUpObject");
+        PlayerDamage = GameObject.Find("PlayerHurt").GetComponent<AudioSource>();
     }
     public void TakeDamage(float damage)
     {
+        PlayerDamage.Play();
         Healthbar -= damage - PowerUpVars.GetComponent<PowerUpVariables>().SubTotalDamageTakenMod;
     }
 
