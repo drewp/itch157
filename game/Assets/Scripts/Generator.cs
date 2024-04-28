@@ -11,11 +11,14 @@ public class Generator : MonoBehaviour
     public GameObject PowerUpObj;
 
     public AudioSource ClockSound;
+
+    float GetGood = 1f;
     
     void Start()
     {
         PowerUpObj = GameObject.Find("PowerUpObject");
         Power = 3500;
+        InvokeRepeating("Buff", 10, 10);
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class Generator : MonoBehaviour
         {
             going = 1;
             ToRecharge = 0;
-            Power -= 1f;
+            Power -= GetGood;
         } else
         {
             Invoke("Charge", 0.1f);
@@ -62,5 +65,9 @@ public class Generator : MonoBehaviour
     {
         Power += (ToRecharge/40);
         going--;
+    }
+    private void Buff()
+    {
+        Power += 0.1f;
     }
 }
