@@ -5,7 +5,7 @@ using TMPro;
 public class setText : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshPro tmp;
+    private TextMeshProUGUI tmp;
     // Start is called before the first frame update
     void Start()
     {
