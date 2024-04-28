@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PowerUpVariables : MonoBehaviour
 {
     public float EnergyDrainMod; // Speed Of Light -1
@@ -29,7 +28,8 @@ public class PowerUpVariables : MonoBehaviour
     public bool MechanicsGambit;
     public bool ImHungry;
 
-    public List<GameObject> CommonPowerups;
+    [SerializeField]
+    private List<GameObject> CommonPowerups;
     public List<GameObject> UncommonPowerups;
     public List<GameObject> RarePowerups;
     public List<GameObject> LegendaryPowerups;
@@ -71,6 +71,8 @@ public class PowerUpVariables : MonoBehaviour
         {
             return null;
         }
+        //Debug.Log(CommonPowerups.Count);
+        Debug.Log(UncommonPowerups.Count);
         switch (D)
         {
             case 1:
