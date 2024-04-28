@@ -153,7 +153,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         BloodParticles.Play();
         RoboHitSound.Play();
-        Health -= Dmg;
+        Health -= Dmg*PowerUpVars.GetComponent<PowerUpVariables>().DamageMod;
         if (Health <= StartHealth / 2f)  rb.velocity = new Vector3(0f, 0f, 0f);
         Vector3 dir = Player.transform.position - transform.position;
         dir = dir.normalized;

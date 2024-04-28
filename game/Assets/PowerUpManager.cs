@@ -56,7 +56,10 @@ public class PowerUpManager : MonoBehaviour
                     PowerUpVars.GetComponent<PowerUpVariables>().BatteryDropChanceMod += 20f;
                     break;
                 case 8:
-                    PowerUpVars.GetComponent<PowerUpVariables>().BatteryRechargeMod += 100.2f;
+                    PowerUpVars.GetComponent<PowerUpVariables>().BatteryRechargeMod += 0.2f;
+                    break;
+                case 9:
+                    PowerUpVars.GetComponent<PowerUpVariables>().DamageMod += 110.1f;
                     break;
             }
             GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>().PickedUpPowerUp(GetComponent<SpriteRenderer>().sprite);
