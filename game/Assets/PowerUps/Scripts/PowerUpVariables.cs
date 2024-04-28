@@ -67,7 +67,7 @@ public class PowerUpVariables : MonoBehaviour
     public GameObject OnDrop()
     {
         int D = DropChance();
-        if(D == 0)
+        if (D == 0)
         {
             return null;
         }
