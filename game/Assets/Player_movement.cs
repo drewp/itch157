@@ -16,9 +16,10 @@ public class Player_movement : MonoBehaviour
     float RunTime = 1;
     int TimeRan = 1;
 
-    float SAmount = 1.68f;
+    float SAmount = 0.01f;
     public float ShakeAmount = .1f;
     public float ShakeTime = .2f;
+    bool rep = false;
     void Start()
     {
         
@@ -29,20 +30,26 @@ public class Player_movement : MonoBehaviour
         if(Mathf.Abs(rigidBody.velocity.magnitude)>=0.1f)
         {
             TimeRan++;
-            if(TimeRan > 95)
+            if (TimeRan > 95)
             {
                 RunTime += 0.005f;
-                if(RunTime >= 2)
+                if (RunTime >= 0.1f)
                 {
-                    InvokeRepeating("DoShake", 0, 0.01f);
+                    SAmount = 0.01f + RunTime / 50;
+                    if (rep == false)
+                    {
+                        InvokeRepeating("DoShake", 0, 0.01f);
+                        rep = true;
+                    }
+                }
+                if (RunTime >= 2)
+                {
                     RunTime = 2;
                 }
             }
         } else
         {
-            RunTime = 1;
-            TimeRan = 0;
-            CancelInvoke("DoShake");
+            Invoke("Stop", 2.0f);
         }
         Camera.GetComponent<Camera>().orthographicSize = 5.0f + rigidBody.velocity.magnitude/12;
     }
@@ -52,12 +59,22 @@ public class Player_movement : MonoBehaviour
         {
             Vector3 CamPos = Camera.GetComponent<Camera>().transform.position;
 
-            float OffsetX = (Random.value * SAmount) * 2 - SAmount;
-            float OffsetY = (Random.value * SAmount) * 2 - SAmount;
+            float OffsetX = (Random.value * SAmount);
+            float OffsetY = (Random.value * SAmount);
             CamPos.x += OffsetX;
             CamPos.y += OffsetY;
 
             Camera.GetComponent<Camera>().transform.position = CamPos;
+        }
+    }
+    void Stop()
+    {
+        if (Mathf.Abs(rigidBody.velocity.magnitude) !>= 0.1f)
+        {
+            rep = false;
+            RunTime = 1;
+            TimeRan = 0;
+            CancelInvoke("DoShake");
         }
     }
 }
