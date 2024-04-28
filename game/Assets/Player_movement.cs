@@ -45,7 +45,7 @@ public class Player_movement : MonoBehaviour
                     SAmount = 0.01f + RunTime / 50;
                     if (rep == false)
                     {
-                        //InvokeRepeating("DoShake", 0, 0.01f);
+                        InvokeRepeating("DoShake", 0, 0.01f);
                         rep = true;
                     }
                 }
@@ -56,6 +56,7 @@ public class Player_movement : MonoBehaviour
             }
         } else
         {
+            CancelInvoke("DoShake");
             Invoke("Stop", 2.0f);
         }
         //if (TimeRan >= 50)
@@ -67,20 +68,20 @@ public class Player_movement : MonoBehaviour
         //    }
         //}
     }
-    //void DoShake()
-    //{
-    //    if (SAmount > 0)
-    //    {
-    //        Vector3 CamPos = Camera.GetComponent<Camera>().transform.position;
+    void DoShake()
+    {
+        if (SAmount > 0)
+       {
+           Vector3 CamPos = Camera.GetComponent<Camera>().transform.position;
 
-    //        float OffsetX = (Random.value * SAmount);
-    //        float OffsetY = (Random.value * SAmount);
-    //        CamPos.x += OffsetX;
-    //        CamPos.y += OffsetY;
+           float OffsetX = (Random.value * SAmount);
+           float OffsetY = (Random.value * SAmount);
+           CamPos.x += OffsetX;
+          CamPos.y += OffsetY;
 
-    //        Camera.GetComponent<Camera>().transform.position = CamPos;
-    //    }
-    //}
+            Camera.GetComponent<Camera>().transform.position = CamPos;
+        }
+    }
     void Stop()
     {
         if (Mathf.Abs(rigidBody.velocity.magnitude) !>= 0.1f)
@@ -88,7 +89,7 @@ public class Player_movement : MonoBehaviour
             rep = false;
             RunTime = 1;
             TimeRan = 0;
-            //CancelInvoke("DoShake");
+            CancelInvoke("DoShake");
         }
     }
 }
