@@ -21,6 +21,8 @@ public class EnemyControllerScript : MonoBehaviour
     public GameObject Battery;
     public AudioSource RoboSound;
     public AudioSource RoboHitSound;
+    private ParticleSystem BloodParticles;
+    private bool FacingRight = true;
 
     GameObject PowerUpVars;
 
@@ -29,6 +31,8 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Start()
     {
+        BloodParticles = transform.Find("ParticleSystem").gameObject.GetComponent<ParticleSystem>();
+        BloodParticles.Stop();
         WanderPoint = new Vector3(0, 0, 0);
         StartHealth = Health;
         Player = GameObject.Find("mechanic_fella");
@@ -147,6 +151,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     public void TakeDamage(float Dmg,float Knockback)
     {
+        BloodParticles.Play();
         RoboHitSound.Play();
         Health -= Dmg;
         if (Health <= StartHealth / 2f)  rb.velocity = new Vector3(0f, 0f, 0f);
@@ -159,8 +164,18 @@ public class EnemyControllerScript : MonoBehaviour
     {
 
         rb.AddForce(force*dir);
-        if (dir.x < 0) SpriteRender.flipX =true;
-        else  SpriteRender.flipX = false;
+        
+        Vector3 newScale = transform.localScale;
+        float flip = 1f;
+
+        if ((dir.x < 0 && FacingRight) || (dir.x > 0 && !FacingRight))
+        {
+            flip = -1f;
+            FacingRight = !FacingRight;
+        }
+        newScale.x *= flip;
+        transform.localScale = newScale;
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
