@@ -21,6 +21,17 @@ public class PowerUpUi : MonoBehaviour
         {
             PowerUpHolders[i].SetActive(false);
         }
+        List<GameObject> Holder = new List<GameObject>();
+        string name = "";
+        int Index = 0;
+        int FirstNum = 0;
+        int SecondNum = 0;
+        for (int i = 0;i<PowerUpHolders.Count ; i++)
+        {
+            name = PowerUpHolders[i].name;
+            Index = name.IndexOf('d');
+            //name[Index+2]
+        }
 
     }
     public void PickedUpPowerUp(Sprite sprite,Color TextColor)
