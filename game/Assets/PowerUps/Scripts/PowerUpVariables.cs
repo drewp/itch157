@@ -14,7 +14,6 @@ public class PowerUpVariables : MonoBehaviour
     public float DamageMod; // Steroids
     public float MovementSpeedMod; // Fast Feet
 
-    public float PushBatteryMod; // Big Pecs
     public float BatteryCarrySpeedMod; // Creatine
     public float BatteryThrowingDistanceAddMod; // Thor
     public float EnemyExplosionChance; // Greasy Gears

@@ -272,7 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 29074160}
   runSpeed: 5
-  PowerUpScript: {fileID: 304833924}
   Camera: {fileID: 1798538627}
   ShakeAmount: 0.1
   ShakeTime: 0.2
@@ -1661,7 +1660,6 @@ MonoBehaviour:
   ClockPowerAddMod: 1
   DamageMod: 1
   MovementSpeedMod: 1
-  PushBatteryMod: 1
   BatteryCarrySpeedMod: 1
   BatteryThrowingDistanceAddMod: 1
   EnemyExplosionChance: 1
@@ -85783,7 +85781,6 @@ MonoBehaviour:
   ClockPowerAddMod: 1
   DamageMod: 1
   MovementSpeedMod: 1
-  PushBatteryMod: 1
   BatteryCarrySpeedMod: 1
   BatteryThrowingDistanceAddMod: 1
   EnemyExplosionChance: 1
@@ -85803,7 +85800,10 @@ MonoBehaviour:
   - {fileID: 228217996568949641, guid: 026daa37a4765b241ae1b96c3b035c28, type: 3}
   - {fileID: 7869068898058046909, guid: 096676319e47fe04daa7edabe5e3c0aa, type: 3}
   - {fileID: 1540221752707780678, guid: 8d0bba01b5efabe4783f7be908f8f085, type: 3}
-  UncommonPowerups: []
+  - {fileID: 4470141239429973363, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+  - {fileID: 8638356578751787216, guid: 104e0e837842a5b4d8d574832aecfc2d, type: 3}
+  UncommonPowerups:
+  - {fileID: 5262568232002700838, guid: 779fce9bf0d983f4e8546b8031c31414, type: 3}
   RarePowerups: []
   LegendaryPowerups: []
 --- !u!4 &856292581

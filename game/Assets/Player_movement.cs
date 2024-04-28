@@ -9,9 +9,10 @@ public class Player_movement : MonoBehaviour
     private Rigidbody2D rigidBody;
     [SerializeField]
     private float runSpeed = 10.0f;
-    public GameObject PowerUpScript;
+     GameObject PowerUpScript;
 
     public GameObject Camera;
+
 
     float RunTime = 1;
     int TimeRan = 1;
@@ -22,11 +23,17 @@ public class Player_movement : MonoBehaviour
     bool rep = false;
     void Start()
     {
-        
+        PowerUpScript = GameObject.Find("PowerUpObject");
     }
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * RunTime * PowerUpScript.GetComponent<PowerUpVariables>().MovementSpeedMod;
+        if (GetComponent<batt_pickup>().holding == true)
+        {
+            rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * RunTime * PowerUpScript.GetComponent<PowerUpVariables>().MovementSpeedMod * PowerUpScript.GetComponent<PowerUpVariables>().BatteryCarrySpeedMod;
+        } else
+        {
+            rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * RunTime * PowerUpScript.GetComponent<PowerUpVariables>().MovementSpeedMod;
+        }
         if(Mathf.Abs(rigidBody.velocity.magnitude)>=0.1f)
         {
             TimeRan++;
