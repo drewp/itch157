@@ -12,13 +12,6 @@ public class PowerUpManager : MonoBehaviour
     {
         PowerPickupSound = GameObject.Find("PickUpPowerUp");
         PowerUpVars = GameObject.Find("PowerUpObject");
-        switch (Type)
-        {
-            case 1:
-                //Fast Feet
-                PowerUpVars.GetComponent<PowerUpVariables>().MovementSpeedMod += 0.7f;
-                break;
-        }
     }
     void Update()
     {
