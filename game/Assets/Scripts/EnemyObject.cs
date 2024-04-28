@@ -14,12 +14,15 @@ public class EnemyObject : ScriptableObject
     public float WanderRange;
     public bool AffectedByBattery = true;
     [HideInInspector] public float SpeedMult = 10f;
-
+    public GameObject Projectile;
+    public float ProjectileForce;
     public enum AgroMode {Basic};
     public AgroMode Agro;
 
-    public enum AttackMode { Basic };
+    public enum AttackMode { Basic, Projectile };
     public AttackMode Attack;
+
+
 
 
 
@@ -50,13 +53,19 @@ public class EnemyObject : ScriptableObject
 
     private void ProjectileAttack(GameObject Enemy, GameObject target)
     {
-
+        Vector3 dir = target.transform.position - Enemy.transform.position;
+        dir = dir.normalized;
+        GameObject NewProj =  Instantiate(Projectile);
+        NewProj.GetComponent<ProjectileScript>().target = target;
+        NewProj.GetComponent<ProjectileScript>().Damage = Dmg;
+        NewProj.GetComponent<Rigidbody>().AddForce(ProjectileForce*100f*dir);
     }
   
 
     public void DoAttack(GameObject Enemy, GameObject target)
     {
         if (Attack == AttackMode.Basic) BasicAttack(Enemy, target);
+        if (Attack == AttackMode.Projectile) BasicAttack(Enemy, target);
     }
 
 
