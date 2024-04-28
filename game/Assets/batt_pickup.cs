@@ -27,7 +27,7 @@ public class batt_pickup : MonoBehaviour
 
     void Start()
     {
-    
+
     }
     void OnTriggerEnter2D(Collider2D col)
     {
