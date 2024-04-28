@@ -8,7 +8,7 @@ using System;
 
 public class PowerUpUi : MonoBehaviour
 {
-    private List<Sprite> PowerUpSprites;
+    private List<Sprite> PowerUpSprites = new List<Sprite>();
     private List<GameObject> PowerUpHolders = new List<GameObject>();
     private int PlaceInHolderOn = 0;
     void Start()
