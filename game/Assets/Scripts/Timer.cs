@@ -4,13 +4,15 @@ using TMPro;
 using UnityEngine;
 public class Timer : MonoBehaviour
 {
-    private int setTime = 0;
+    [HideInInspector]
+    public static int setTime = 0;
     [SerializeField]
     private TextMeshProUGUI tmp;
     public GameObject PowerUpObj;
     // Start is called before the first frame update
     void Start()
     {
+        setTime = 0;
         PowerUpObj = GameObject.Find("PowerUpObject");
         tick();
     }
