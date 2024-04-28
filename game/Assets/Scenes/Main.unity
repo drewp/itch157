@@ -832,6 +832,7 @@ MonoBehaviour:
   ImHungry: 0
   CommonPowerups:
   - {fileID: 5621859326399383617, guid: 16a821977164f0f4e862a3977e32bfb2, type: 3}
+  - {fileID: 2105879300332100004, guid: ab590ebab427107438976f07bf907e9c, type: 3}
   UncommonPowerups: []
   RarePowerups: []
   LegendaryPowerups: []
