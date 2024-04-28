@@ -89,14 +89,14 @@ public class PowerUpUi : MonoBehaviour
         DoingPopUp = true;
         for (int i = 0; i < 500; i++)
         {
-            PowerUPPopUp.transform.position -= new Vector3(.3f,0,0);
-            yield return new WaitForSeconds(.002f);
+            PowerUPPopUp.transform.position -= new Vector3(.6f,0,0);
+            yield return new WaitForSeconds(.001f);
         }
         yield return new WaitForSeconds(5);
         for (int i = 0; i < 500; i++)
         {
-            PowerUPPopUp.transform.position += new Vector3(.3f, 0, 0);
-            yield return new WaitForSeconds(.002f);
+            PowerUPPopUp.transform.position += new Vector3(.6f, 0, 0);
+            yield return new WaitForSeconds(.001f);
         }
         DoingPopUp = false;
     }
