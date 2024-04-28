@@ -82,7 +82,7 @@ public class EnemyControllerScript : MonoBehaviour
             robot_anim.anm.SetBool("isDead", true);
             robot_anim.anm.SetBool("isWalking", false);
             robot_anim.anm.SetBool("isIdle", false);
-            robot_anim.anm.SetBool("isAttacking", true);
+            
             Invoke("deathfinish", 0.75f);
         }
             
@@ -201,7 +201,7 @@ public class EnemyControllerScript : MonoBehaviour
             robot_anim.anm.SetBool("isDead", true);
             robot_anim.anm.SetBool("isWalking", false);
             robot_anim.anm.SetBool("isIdle", false);
-            robot_anim.anm.SetBool("isAttacking", true);
+            
             Invoke("deathfinish", 0.75f);
         }
     }
