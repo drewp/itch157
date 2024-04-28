@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class robot_anim : MonoBehaviour
 {
-    public static Animator anm;
+    [SerializeField]
+    private Animator anm;
     [SerializeField]
     private Rigidbody2D rb;
     public EnemyControllerScript ControllScript;
