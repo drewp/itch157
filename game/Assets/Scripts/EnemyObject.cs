@@ -47,6 +47,11 @@ public class EnemyObject : ScriptableObject
         if (HealthScript != null ) HealthScript.TakeDamage(Dmg);
         
     }
+
+    private void ProjectileAttack(GameObject Enemy, GameObject target)
+    {
+
+    }
   
 
     public void DoAttack(GameObject Enemy, GameObject target)
