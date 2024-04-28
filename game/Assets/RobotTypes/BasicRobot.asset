@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 745f791427f396940b5fb1a7bdf4d570, type: 3}
-  m_Name: BasicEnemy
+  m_Name: BasicRobot
   m_EditorClassIdentifier: 
   Health: 100
   agroDst: 10
   Dmg: 10
   Speed: 200
-  AttackCooldown: 1
+  AttackCooldown: 2
   AttackRange: 0.6
   WanderRange: 5
   SpeedMult: 10

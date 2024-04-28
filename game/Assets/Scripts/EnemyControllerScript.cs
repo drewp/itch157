@@ -24,6 +24,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Start()
     {
+        WanderPoint = new Vector3(0, 0, 0);
         StartHealth = Health;
         Player = GameObject.Find("mechanic_fella");
         rb = GetComponent<Rigidbody2D>();
