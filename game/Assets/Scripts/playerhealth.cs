@@ -25,7 +25,6 @@ public class playerhealth : MonoBehaviour
         
         if (Healthbar < 0.2)
         {
-            staticscore.score = Timer.setTime;
             SceneManager.LoadScene("death_menu");
         }
     }

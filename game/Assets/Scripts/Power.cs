@@ -26,7 +26,6 @@ public class Power : MonoBehaviour
         powerbar.fillAmount = current_power;
         if(current_power == 0)
         {
-            staticscore.score = Timer.setTime;
             SceneManager.LoadScene("death_menu");
         }
     }
