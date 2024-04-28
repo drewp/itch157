@@ -272,6 +272,9 @@ MonoBehaviour:
   rigidBody: {fileID: 29074160}
   runSpeed: 5
   PowerUpScript: {fileID: 304833924}
+  Camera: {fileID: 1798538627}
+  ShakeAmount: 0.1
+  ShakeTime: 0.2
 --- !u!95 &29074156
 Animator:
   serializedVersion: 5
