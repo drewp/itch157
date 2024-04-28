@@ -24,17 +24,14 @@ public class Player_movement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) && walking == false)
         {
             Step.Play();
+            walking = true;
         } else
         {
-            if(walking == true && Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-            {
-
-            } else
+            if(Step.isPlaying == true)
             {
                 Step.Stop();
                 walking = false;
             }
-
         }
     }
 }
