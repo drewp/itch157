@@ -7,21 +7,32 @@ using UnityEngine.UI;
 public class playerhealth : MonoBehaviour
 {
     private float Healthbar = 30;
+    public float MaxHealth = 30;
     [SerializeField]
     private Image hpbarImg;
+
+    public GameObject PowerUpVars;
+    private void Start()
+    {
+        PowerUpVars = GameObject.Find("PowerUpObject");
+    }
     public void TakeDamage(float damage)
     {
-        
-        Healthbar -= damage;
+        Healthbar -= damage - PowerUpVars.GetComponent<PowerUpVariables>().SubTotalDamageTakenMod;
     }
 
     private void FixedUpdate()
     {
+        MaxHealth = 30 * PowerUpVars.GetComponent<PowerUpVariables>().HealthAddMod;
         Healthbar += 0.005f;
+        if (Healthbar >= MaxHealth)
+        {
+            Healthbar = MaxHealth;
+        }
     }
     private void Update()
     {
-        hpbarImg.fillAmount = Healthbar/30f;
+        hpbarImg.fillAmount = Healthbar/MaxHealth;
         
         if (Healthbar < 0.2)
         {
