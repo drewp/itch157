@@ -22,6 +22,7 @@ public class EnemyControllerScript : MonoBehaviour
     public AudioSource RoboSound;
     public AudioSource RoboHitSound;
 
+    GameObject PowerUpVars;
 
 
 
@@ -36,7 +37,7 @@ public class EnemyControllerScript : MonoBehaviour
         PlayerCollider = Player.transform.Find("collider").gameObject.GetComponent<BoxCollider2D>();
         SpriteRender = GetComponent<SpriteRenderer>();
         Health = EnemyObject.Health;
-        
+        PowerUpVars = GameObject.Find("PowerUpObject");        
     }
 
     void FixedUpdate()
@@ -61,6 +62,11 @@ public class EnemyControllerScript : MonoBehaviour
                 NewBat.transform.position = transform.position;
             }
             Destroy(gameObject);
+            GameObject PPowerup = PowerUpVars.GetComponent<PowerUpVariables>().OnDrop();
+            if(PPowerup != null)
+            {
+                Instantiate(PPowerup, this.transform);
+            }
         }
             
         Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);

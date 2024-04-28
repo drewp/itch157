@@ -51,7 +51,10 @@ public class Player_movement : MonoBehaviour
         {
             Invoke("Stop", 2.0f);
         }
-        Camera.GetComponent<Camera>().orthographicSize = 5.0f + rigidBody.velocity.magnitude/12;
+        if (TimeRan >= 50)
+        {
+            Camera.GetComponent<Camera>().orthographicSize = 5.0f + rigidBody.velocity.magnitude / 12;
+        }
     }
     void DoShake()
     {
