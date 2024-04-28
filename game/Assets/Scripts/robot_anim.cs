@@ -11,6 +11,7 @@ public class robot_anim : MonoBehaviour
     private Rigidbody2D rb;
     public EnemyControllerScript ControllScript;
     private bool dying = false;
+
     private void Update()
     {
         if (!ControllScript.IsAttacking && !dying)
@@ -44,11 +45,13 @@ public class robot_anim : MonoBehaviour
     }
     public void deathanim()
     {
+        rb.gravityScale = 2.0f;
         Debug.Log("die");
         dying = true;
         anm.SetBool("isAttacking", false);
         anm.SetBool("isWalking", false);
         anm.SetBool("isIdle", false);
         anm.SetBool("isDead", true);
+
     }
 }
