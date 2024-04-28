@@ -7,6 +7,7 @@ public class PowerUpManager : MonoBehaviour
     public int Type = 0;
     public GameObject PowerUpVars;
     public GameObject PowerPickupSound;
+    public GameObject CanvasThing;
     void Start()
     {
         PowerPickupSound = GameObject.Find("PickUpPowerUp");
@@ -46,6 +47,7 @@ public class PowerUpManager : MonoBehaviour
                     PowerUpVars.GetComponent<PowerUpVariables>().ClockPowerAddMod += 0.10f;
                     break;
             }
+            CanvasThing.GetComponent<PowerUpUi>().PickedUpPowerUp(PowerUpVars.GetComponent<SpriteRenderer>().sprite);
             Destroy(gameObject);
         }
     }
