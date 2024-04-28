@@ -86,6 +86,7 @@ public class PowerUpManager : MonoBehaviour
                     break;
             }
             GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>().PickedUpPowerUp(GetComponent<SpriteRenderer>().sprite, color);
+            GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>().DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "meth", color);
             Destroy(gameObject);
         }
     }
