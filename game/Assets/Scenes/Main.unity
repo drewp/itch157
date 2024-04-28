@@ -1674,6 +1674,8 @@ MonoBehaviour:
   CommonPowerups:
   - {fileID: 5621859326399383617, guid: 16a821977164f0f4e862a3977e32bfb2, type: 3}
   - {fileID: 2105879300332100004, guid: ab590ebab427107438976f07bf907e9c, type: 3}
+  - {fileID: 8748893782399994532, guid: 2d9fa22f70790a4499c40d73f5377466, type: 3}
+  - {fileID: 1355041904221432354, guid: 8a7f434f7ad93f64bbdbc8207bf13acd, type: 3}
   UncommonPowerups: []
   RarePowerups: []
   LegendaryPowerups: []
@@ -1690,7 +1692,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1169696217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345546289
 GameObject:
@@ -87859,7 +87861,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 304833926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173395707
@@ -88688,8 +88691,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpriteBoxHolder: {fileID: 3685836169356542310, guid: 79ee339e75a93d7438a324d4cbb8792f, type: 3}
-  BoxesPerRow: 10
 --- !u!1 &1441821751
 GameObject:
   m_ObjectHideFlags: 0
@@ -91520,7 +91521,6 @@ SceneRoots:
   - {fileID: 1135088953}
   - {fileID: 1228615119}
   - {fileID: 1169696217}
-  - {fileID: 304833926}
   - {fileID: 544039168}
   - {fileID: 2076795640}
   - {fileID: 1926362039}
