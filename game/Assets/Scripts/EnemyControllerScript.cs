@@ -25,12 +25,13 @@ public class EnemyControllerScript : MonoBehaviour
     private bool FacingRight = true;
 
     GameObject PowerUpVars;
-
+    public AudioSource DeathSound;
 
 
 
     void Start()
     {
+        DeathSound = GameObject.Find("WhenKilledAudio").GetComponent<AudioSource>();
         BloodParticles = transform.Find("ParticleSystem").gameObject.GetComponent<ParticleSystem>();
         BloodParticles.Stop();
         WanderPoint = new Vector3(0, 0, 0);
@@ -71,6 +72,7 @@ public class EnemyControllerScript : MonoBehaviour
                 GameObject Temp = Instantiate(PPowerup);
                 Temp.transform.position = transform.position;
             }
+            DeathSound.Play();
             Destroy(gameObject);
         }
             
@@ -182,7 +184,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Battery" && other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude>.1f)
         {
-           
+            DeathSound.Play();
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
