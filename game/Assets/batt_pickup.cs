@@ -25,9 +25,11 @@ public class batt_pickup : MonoBehaviour
 
     public AudioSource PickupSound;
 
+    public GameObject PowerUpVars;
+
     void Start()
     {
-
+        PowerUpVars = GameObject.Find("PowerUpObject");
     }
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -73,11 +75,11 @@ public class batt_pickup : MonoBehaviour
                 var instance = Instantiate(heldbatt, transform.position, Quaternion.identity);
                 if (facingright == true)
                 {
-                    instance.GetComponent<Rigidbody2D>().AddForce(transform.right * 100);
+                    instance.GetComponent<Rigidbody2D>().AddForce(transform.right * 100 * PowerUpVars.GetComponent<PowerUpVariables>().BatteryThrowingDistanceAddMod);
                 }
                 else
                 {
-                    instance.GetComponent<Rigidbody2D>().AddForce(transform.right * -100);
+                    instance.GetComponent<Rigidbody2D>().AddForce(transform.right * -100 * PowerUpVars.GetComponent<PowerUpVariables>().BatteryThrowingDistanceAddMod);
                 }
                 
 

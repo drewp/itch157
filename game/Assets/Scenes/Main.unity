@@ -330,6 +330,7 @@ MonoBehaviour:
   holdingbattimg: {fileID: 21300000, guid: 80421775175a1d94baeeec1f40149bfc, type: 3}
   normimg: {fileID: 21300000, guid: 8fd113d656b84274bbbd46981d76d76f, type: 3}
   PickupSound: {fileID: 29074153}
+  PowerUpVars: {fileID: 0}
 --- !u!58 &29074159
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -85804,6 +85805,7 @@ MonoBehaviour:
   - {fileID: 8638356578751787216, guid: 104e0e837842a5b4d8d574832aecfc2d, type: 3}
   UncommonPowerups:
   - {fileID: 5262568232002700838, guid: 779fce9bf0d983f4e8546b8031c31414, type: 3}
+  - {fileID: 5071204314644552685, guid: 084fce766d85a2348a988b5e6b0cd617, type: 3}
   RarePowerups: []
   LegendaryPowerups: []
 --- !u!4 &856292581
