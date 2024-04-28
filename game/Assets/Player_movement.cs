@@ -11,15 +11,69 @@ public class Player_movement : MonoBehaviour
     private float runSpeed = 10.0f;
     public GameObject PowerUpScript;
 
-    bool walking = false;
+    public GameObject Camera;
 
+    float RunTime = 1;
+    int TimeRan = 1;
+
+    float SAmount;
+    public float ShakeAmount = .1f;
+    public float ShakeTime = .2f;
     void Start()
     {
         
     }
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * RunTime;
+        if(Mathf.Abs(rigidBody.velocity.magnitude)>=0.1f)
+        {
+            TimeRan++;
+            if(TimeRan > 95)
+            {
+                RunTime += 0.005f;
+                if(RunTime >= 2)
+                {
+                    Shake(0.01f, 1);
+                    RunTime = 2;
+                }
+            }
+        } else
+        {
+            RunTime = 1;
+            TimeRan = 0;
+            StopShake();
+        }
+        Camera.GetComponent<Camera>().orthographicSize = 5.0f + rigidBody.velocity.magnitude/12;
+    }
+
+
+    public void Shake(float Amount, float Length)
+    {
+        SAmount = Amount;
+        InvokeRepeating("DoShake", 0, 0.01f);
+        Invoke("StopShake", Length);
+    }
+
+    void DoShake()
+    {
+        if (SAmount > 0)
+        {
+            Vector3 CamPos = Camera.transform.position;
+
+            float OffsetX = (Random.value * SAmount) * 2 - SAmount;
+            float OffsetY = (Random.value * SAmount) * 2 - SAmount;
+            CamPos.x += OffsetX;
+            CamPos.y += OffsetY;
+
+            Camera.transform.position = CamPos;
+        }
+    }
+
+    void StopShake()
+    {
+        CancelInvoke("DoShake");
+        Camera.transform.localPosition = Vector3.back;
 
     }
 }
