@@ -26,12 +26,14 @@ public class EnemyControllerScript : MonoBehaviour
 
     GameObject PowerUpVars;
     public AudioSource DeathSound;
+    public AudioSource SwingSound;
 
 
 
     void Start()
     {
         DeathSound = GameObject.Find("WhenKilledAudio").GetComponent<AudioSource>();
+        SwingSound = GameObject.Find("SwingAudio").GetComponent<AudioSource>();
         BloodParticles = transform.Find("ParticleSystem").gameObject.GetComponent<ParticleSystem>();
         BloodParticles.Stop();
         WanderPoint = new Vector3(0, 0, 0);
@@ -113,12 +115,12 @@ public class EnemyControllerScript : MonoBehaviour
 
     private void DoDoAttack()
     {
+        SwingSound.Play();
         EnemyObject.DoAttack(gameObject, Player);
 
     }
     private void AttackOver()
     {
-
         IsAttacking = false;
         Cooldown = 0;
 
