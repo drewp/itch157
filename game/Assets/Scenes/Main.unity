@@ -88753,28 +88753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719e9ecf16d5dc74daa9853a542faddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerUpSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  testSprite: {fileID: 21300000, guid: b86362771f55e9f49adb66837ce6dda4, type: 3}
 --- !u!1 &1441821751
 GameObject:
   m_ObjectHideFlags: 0
