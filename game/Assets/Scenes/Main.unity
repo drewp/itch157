@@ -85790,7 +85790,7 @@ MonoBehaviour:
   ImmunityFramesAddMod: 1
   BatteryExplosionChance: 1
   BatteryHitMoveMod: 1
-  FullyRechargeChanceMod: 1
+  FullyRechargeChanceMod: -1
   MechanicsGambit: 0
   ImHungry: 0
   CommonPowerups:
@@ -85808,7 +85808,8 @@ MonoBehaviour:
   - {fileID: 5071204314644552685, guid: 084fce766d85a2348a988b5e6b0cd617, type: 3}
   - {fileID: 6682581053078033869, guid: 6cf9f444686ba8e479384fe63a2e1fc4, type: 3}
   - {fileID: 3433843072877531016, guid: 2c710c98585d51042b8577170715c78f, type: 3}
-  RarePowerups: []
+  RarePowerups:
+  - {fileID: 7409957603724648421, guid: b8e8105eae81fe644bd1df31c22c49d5, type: 3}
   LegendaryPowerups: []
 --- !u!4 &856292581
 Transform:

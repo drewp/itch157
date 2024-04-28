@@ -73,6 +73,9 @@ public class PowerUpManager : MonoBehaviour
                 case 13:
                     PowerUpVars.GetComponent<PowerUpVariables>().ClockPowerMod += 0.3f;
                     break;
+                case 14:
+                    PowerUpVars.GetComponent<PowerUpVariables>().FullyRechargeChanceMod += 2;
+                    break;
             }
             GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>().PickedUpPowerUp(GetComponent<SpriteRenderer>().sprite);
             Destroy(gameObject);
