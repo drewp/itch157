@@ -33,7 +33,7 @@ public class RobotSpawningScript : MonoBehaviour
         int RobotNum = Random.Range(0, 100);
         for (int i = 0;i<Robots.Count;i++)
         {
-            if (RobotNum< RobotSpawnRate[i])
+            if (RobotNum<= RobotSpawnRate[i])
             {
                 RobotNum = i;
                 break;
