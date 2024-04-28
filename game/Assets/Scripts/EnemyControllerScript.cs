@@ -23,6 +23,8 @@ public class EnemyControllerScript : MonoBehaviour
     public AudioSource RoboHitSound;
     private ParticleSystem BloodParticles;
     private bool FacingRight = true;
+    [SerializeField]
+    robot_anim ranm;
 
     GameObject PowerUpVars;
     public AudioSource DeathSound;
@@ -80,6 +82,8 @@ public class EnemyControllerScript : MonoBehaviour
         {
             
             DeathSound.Play();
+            IsAttacking = false;
+            ranm.deathanim();
             Invoke("death", 0.75f);
         }
             

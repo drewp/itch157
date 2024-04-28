@@ -22,6 +22,7 @@ public class robot_anim : MonoBehaviour
             {
                 anm.SetBool("isWalking", false);
                 anm.SetBool("isIdle", true);
+                anm.SetBool("isAttacking", false);
 
 
             }
@@ -29,10 +30,11 @@ public class robot_anim : MonoBehaviour
             {
                 anm.SetBool("isWalking", true);
                 anm.SetBool("isIdle", false);
+                anm.SetBool("isAttacking", false);
 
             }
         }
-        else
+        else if (!dying)
         {
             anm.SetBool("isWalking", false);
             anm.SetBool("isIdle", false);
@@ -42,7 +44,9 @@ public class robot_anim : MonoBehaviour
     }
     public void deathanim()
     {
+        Debug.Log("die");
         dying = true;
+        anm.SetBool("isAttacking", false);
         anm.SetBool("isWalking", false);
         anm.SetBool("isIdle", false);
         anm.SetBool("isDead", true);
