@@ -11,7 +11,7 @@ public class playerhealth : MonoBehaviour
     private Image hpbarImg;
     public void TakeDamage(float damage)
     {
-        Debug.Log("Takedamage");
+        
         Healthbar -= damage;
     }
 
@@ -22,7 +22,7 @@ public class playerhealth : MonoBehaviour
     private void Update()
     {
         hpbarImg.fillAmount = Healthbar/30f;
-        Debug.Log(hpbarImg.fillAmount);
+        
         if (Healthbar < 0.2)
         {
             SceneManager.LoadScene("death_menu");
