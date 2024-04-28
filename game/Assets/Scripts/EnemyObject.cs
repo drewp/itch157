@@ -12,6 +12,7 @@ public class EnemyObject : ScriptableObject
     public float AttackCooldown;
     public float AttackRange;
     public float WanderRange;
+    public bool AffectedByBattery = true;
     [HideInInspector] public float SpeedMult = 10f;
 
     public enum AgroMode {Basic};

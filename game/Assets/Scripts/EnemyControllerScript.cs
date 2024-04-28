@@ -73,7 +73,6 @@ public class EnemyControllerScript : MonoBehaviour
             GameObject Temp = Instantiate(PPowerup);
             Temp.transform.position = transform.position;
         }
-        Debug.Log("Test");
         Destroy(gameObject);
     }
     void Update()
@@ -194,7 +193,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Battery" && other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude>.1f)
+        if (other.gameObject.tag == "Battery" && other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude>.1f && EnemyObject.AffectedByBattery)
         {
             DeathSound.Play();
             Destroy(other.gameObject);
