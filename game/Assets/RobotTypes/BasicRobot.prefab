@@ -5071,7 +5071,6 @@ MonoBehaviour:
   RoboSound: {fileID: 4562486445880098794}
   RoboHitSound: {fileID: 8705777101707290766}
   DeathSound: {fileID: 0}
-  SwingSound: {fileID: 0}
 --- !u!50 &4788217293595974180
 Rigidbody2D:
   serializedVersion: 4

@@ -46,10 +46,6 @@ public class EnemyControllerScript : MonoBehaviour
         Health = EnemyObject.Health;
         PowerUpVars = GameObject.Find("PowerUpObject");        
     }
-    void deathfinish()
-    {
-        Destroy(gameObject);
-    }
 
     void FixedUpdate()
     {
@@ -79,11 +75,7 @@ public class EnemyControllerScript : MonoBehaviour
                 Temp.transform.position = transform.position;
             }
             DeathSound.Play();
-            robot_anim.anm.SetBool("isDead", true);
-            robot_anim.anm.SetBool("isWalking", false);
-            robot_anim.anm.SetBool("isIdle", false);
-            
-            Invoke("deathfinish", 0.75f);
+            Destroy(gameObject);
         }
             
         Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);
@@ -190,19 +182,13 @@ public class EnemyControllerScript : MonoBehaviour
 
     }
 
-
-    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Battery" && other.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude>.1f)
         {
             DeathSound.Play();
             Destroy(other.gameObject);
-            robot_anim.anm.SetBool("isDead", true);
-            robot_anim.anm.SetBool("isWalking", false);
-            robot_anim.anm.SetBool("isIdle", false);
-            
-            Invoke("deathfinish", 0.75f);
+            Destroy(gameObject);
         }
     }
 
