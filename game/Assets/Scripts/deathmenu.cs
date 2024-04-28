@@ -16,7 +16,7 @@ public class deathmenu : MonoBehaviour
     }
     public void quit()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     // Update is called once per frame
