@@ -19,6 +19,9 @@ public class EnemyControllerScript : MonoBehaviour
     private SpriteRenderer SpriteRender;
     [HideInInspector] public bool IsAttacking;
     public GameObject Battery;
+    public AudioSource RoboSound;
+    public AudioSource RoboHitSound;
+
 
 
 
@@ -35,8 +38,19 @@ public class EnemyControllerScript : MonoBehaviour
         Health = EnemyObject.Health;
     }
 
+    void FixedUpdate()
+    {
+        Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);
+        Vector3 PlayerClosestPoint = PlayerCollider.ClosestPoint(MyClosestPoint);
+        float Dst = Vector3.Distance(MyClosestPoint, PlayerClosestPoint);
+
+        
+        int RS = Random.Range(0, 1000);
+        if (RS == 10&& Dst < 50) RoboSound.Play();
+    }
     void Update()
     {
+        
         if (Health <= 0)
         {
             int RS = Random.Range(1, 3);
@@ -114,6 +128,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     public void TakeDamage(float Dmg,float Knockback)
     {
+        RoboHitSound.Play();
         Health -= Dmg;
         if (Health <= StartHealth / 2f)  rb.velocity = new Vector3(0f, 0f, 0f);
         Vector3 dir = Player.transform.position - transform.position;
