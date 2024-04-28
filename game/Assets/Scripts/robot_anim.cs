@@ -15,12 +15,12 @@ public class robot_anim : MonoBehaviour
         if (!ControllScript.IsAttacking)
         {
 
+            anm.SetBool("isAttacking", false);
 
             if (rb.velocity.x < 0.5 && rb.velocity.x > -0.5 && rb.velocity.y < 0.5 && rb.velocity.y > -0.5)
             {
                 anm.SetBool("isWalking", false);
                 anm.SetBool("isIdle", true);
-                anm.SetBool("isAttacking", false);
 
 
             }
@@ -28,7 +28,6 @@ public class robot_anim : MonoBehaviour
             {
                 anm.SetBool("isWalking", true);
                 anm.SetBool("isIdle", false);
-                anm.SetBool("isAttacking", false);
 
             }
         }

@@ -46,8 +46,8 @@ public class EnemyControllerScript : MonoBehaviour
         float Dst = Vector3.Distance(MyClosestPoint, PlayerClosestPoint);
 
         
-        int RS = Random.Range(0, 1000);
-        if (RS == 10&& Dst < 50) RoboSound.Play();
+        int RS = Random.Range(0, 1500);
+        if (RS == 10&& Dst < 30) RoboSound.Play();
     }
     void Update()
     {
@@ -79,10 +79,10 @@ public class EnemyControllerScript : MonoBehaviour
             WanderPoint = new Vector3(0,0,0);
             WanderCooldown = 0f;
             EnemyObject.DoAgro(gameObject, Player,Dst);
-            if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown)
+            if (Dst <= EnemyObject.AttackRange && Cooldown >= EnemyObject.AttackCooldown&& !IsAttacking)
             {
                 IsAttacking = true;
-                Invoke("AttackOver", .4f);
+                Invoke("AttackOver", .54f);
                 EnemyObject.DoAttack(gameObject, Player);
                 Cooldown = 0;
             }
@@ -91,6 +91,7 @@ public class EnemyControllerScript : MonoBehaviour
         }
         else
         {
+            
             Cooldown = 0f;
            
             Wander();
@@ -100,9 +101,12 @@ public class EnemyControllerScript : MonoBehaviour
 
     private void AttackOver()
     {
+
         IsAttacking = false;
+        Cooldown = 0;
+
     }
-   
+
 
     public void Wander()
     {
