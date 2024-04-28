@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyObject: {fileID: 11400000, guid: 48a9d2d3ddd7b4f43be41c1e2511311c, type: 2}
   IsAttacking: 0
+  Battery: {fileID: 711763283573990739, guid: 69d5f95cae8a55a49b3fb0d45e49b2aa, type: 3}
 --- !u!50 &4788217293595974180
 Rigidbody2D:
   serializedVersion: 4

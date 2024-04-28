@@ -18,6 +18,7 @@ public class EnemyControllerScript : MonoBehaviour
     private float StartHealth;
     private SpriteRenderer SpriteRender;
     [HideInInspector] public bool IsAttacking;
+    public GameObject Battery;
 
 
 
@@ -31,10 +32,22 @@ public class EnemyControllerScript : MonoBehaviour
         Collider = GetComponent<BoxCollider2D>();
         PlayerCollider = Player.transform.Find("collider").gameObject.GetComponent<BoxCollider2D>();
         SpriteRender = GetComponent<SpriteRenderer>();
+        Health = EnemyObject.Health;
     }
 
     void Update()
     {
+        if (Health <= 0)
+        {
+            int RS = Random.Range(1, 5);
+            if (RS == 2)
+            {
+                GameObject NewBat = Instantiate(Battery);
+                NewBat.transform.position = transform.position;
+            }
+            Destroy(gameObject);
+        }
+            
         Vector3 MyClosestPoint = Collider.ClosestPoint(Player.transform.position);
         Vector3 PlayerClosestPoint = PlayerCollider.ClosestPoint(MyClosestPoint);
          
