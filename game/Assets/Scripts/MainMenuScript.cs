@@ -9,6 +9,7 @@ public class MainMenuScript : MonoBehaviour
     private GameObject InfoScreen;
     private GameObject MainScreen;
     private bool MainScreenOn = true;
+    public GameObject MouseHitter;
 
     void Start()
     {
@@ -34,5 +35,10 @@ public class MainMenuScript : MonoBehaviour
             InfoScreen.SetActive(true);
             MainScreen.SetActive(false);
         }
+    }
+    
+    void Update()
+    {
+        MouseHitter.transform.position = GetComponent<Camera>().ScreenToWorldPoint( Input.mousePosition)+new Vector3(0,0,20f);
     }
 }
