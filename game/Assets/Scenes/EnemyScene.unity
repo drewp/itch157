@@ -483,6 +483,7 @@ MonoBehaviour:
   holdingbattimg: {fileID: 21300000, guid: 80421775175a1d94baeeec1f40149bfc, type: 3}
   normimg: {fileID: 21300000, guid: 8fd113d656b84274bbbd46981d76d76f, type: 3}
   PickupSound: {fileID: 931323162}
+  PowerUpVars: {fileID: 0}
 --- !u!58 &931323155
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -629,7 +630,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 931323156}
   runSpeed: 5
-  PowerUpScript: {fileID: 1406113456}
   Camera: {fileID: 0}
   ShakeAmount: 0.1
   ShakeTime: 0.2
@@ -1032,7 +1032,6 @@ MonoBehaviour:
   ClockPowerAddMod: 0
   DamageMod: 0
   MovementSpeedMod: 0
-  PushBatteryMod: 0
   BatteryCarrySpeedMod: 0
   BatteryThrowingDistanceAddMod: 0
   EnemyExplosionChance: 0
@@ -1414,6 +1413,7 @@ MonoBehaviour:
   anm: {fileID: 1920962915}
   bp: {fileID: 931323154}
   SwingSound: {fileID: 1920962919}
+  PowerUpVars: {fileID: 0}
 --- !u!95 &1920962915
 Animator:
   serializedVersion: 5
@@ -1717,6 +1717,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265a1d797b21da14282014164944d0aa, type: 3}
+--- !u!1001 &2004561055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951764137882188437, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470141239429973363, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
+      propertyPath: m_Name
+      value: BiggerBatteries
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd5c33dafca7d8a489a7191ad2d876c5, type: 3}
 --- !u!114 &2006111263 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3120544177965100662, guid: 265a1d797b21da14282014164944d0aa, type: 3}
@@ -1740,3 +1797,4 @@ SceneRoots:
   - {fileID: 931323159}
   - {fileID: 1406113458}
   - {fileID: 455178726}
+  - {fileID: 2004561055}
