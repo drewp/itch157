@@ -46,7 +46,7 @@ public class Generator : MonoBehaviour
         if (collision.gameObject.tag == "Battery")
         {
             ToRecharge = collision.gameObject.GetComponent<BatteryScriptable>().PowerRefilled;
-            going = 145;
+            going = 40;
             Destroy(collision.gameObject);
             ClockSound.Play();
         }
@@ -54,7 +54,7 @@ public class Generator : MonoBehaviour
 
     private void Charge()
     {
-        Power += (ToRecharge/145);
+        Power += (ToRecharge/40);
         going--;
     }
 }
