@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class playerhealth : MonoBehaviour
 {
-    private float Healthbar = 50;
+    private float Healthbar = 30;
     [SerializeField]
     private Image hpbarImg;
     public void TakeDamage(float damage)
@@ -17,13 +17,13 @@ public class playerhealth : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Healthbar += 0.05f;
+        Healthbar += 0.005f;
     }
     private void Update()
     {
-        hpbarImg.fillAmount = Healthbar/50f;
+        hpbarImg.fillAmount = Healthbar/30f;
         Debug.Log(hpbarImg.fillAmount);
-        if (Healthbar == 0)
+        if (Healthbar < 0.2)
         {
             SceneManager.LoadScene("death_menu");
         }
