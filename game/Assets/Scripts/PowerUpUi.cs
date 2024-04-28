@@ -91,7 +91,7 @@ public class PowerUpUi : MonoBehaviour
             PowerUpImage.GetComponent<Image>().sprite = PopUpSprites[0];
             PowerUpInfo.GetComponent<TextMeshProUGUI>().text = PopUpInfos[0];
             PowerUpInfo.GetComponent<TextMeshProUGUI>().color = PopUpColors[0];
-            PopUpPopOut();
+            StartCoroutine(PopUpPopOut());
             PopUpColors.RemoveAt(0);
             PopUpInfos.RemoveAt(0);
             PopUpSprites.RemoveAt(0);
