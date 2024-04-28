@@ -26,7 +26,7 @@ public class Player_movement : MonoBehaviour
             Step.Play();
         } else
         {
-            Step.Stop();
+            //Step.Stop();
             walking = false;
         }
     }
