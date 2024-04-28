@@ -26,7 +26,7 @@ public class PowerUpUi : MonoBehaviour
 
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            PowerUpHolders.Add(gameObject.transform.GetChild(i).gameObject);
+            if (gameObject.transform.GetChild(i).gameObject.name != "PowerUpPopUp") { PowerUpHolders.Add(gameObject.transform.GetChild(i).gameObject); }
         }
         for (int i = 0; i < PowerUpHolders.Count; i++)
         {
@@ -81,16 +81,16 @@ public class PowerUpUi : MonoBehaviour
     IEnumerator PopUpPopOut()
     {
         DoingPopUp = true;
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 500; i++)
         {
             PowerUPPopUp.transform.position -= new Vector3(.3f,0,0);
-            yield return new WaitForSeconds(.001f);
+            yield return new WaitForSeconds(.002f);
         }
         yield return new WaitForSeconds(5);
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 500; i++)
         {
             PowerUPPopUp.transform.position += new Vector3(.3f, 0, 0);
-            yield return new WaitForSeconds(.001f);
+            yield return new WaitForSeconds(.002f);
         }
         DoingPopUp = false;
     }
