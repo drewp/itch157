@@ -10,7 +10,7 @@ public class BatteryScriptable : MonoBehaviour
 
     void Start()
     {
-        
+        PowerRefilled = Random.Range(10, 120);
     }
     void Update()
     {
