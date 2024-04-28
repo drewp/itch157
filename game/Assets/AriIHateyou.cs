@@ -15,14 +15,14 @@ public class AriIHateyou : MonoBehaviour
     void Update()
     {
         Debug.Log(GetComponent<AudioSource>().isPlaying);
-        if (Mathf.Abs(Rigidbody.velocity.x) > 0 || Mathf.Abs(Rigidbody.velocity.y) > 0  && walking == false)
+        if (Mathf.Abs(Rigidbody.velocity.magnitude) > 0  && walking == false)
         {
             GetComponent<AudioSource>().Play();
             walking = true;
         }
         else
         {
-            if (GetComponent<AudioSource>().isPlaying == true && Mathf.Abs(Rigidbody.velocity.x) <= 0 && Mathf.Abs(Rigidbody.velocity.y) <= 0)
+            if (GetComponent<AudioSource>().isPlaying == true && Mathf.Abs(Rigidbody.velocity.magnitude) <= 0)
             {
                 GetComponent<AudioSource>().Stop();
                 walking = false;
