@@ -46,6 +46,7 @@ public class MainMenuScript : MonoBehaviour
     
     void Update()
     {
-        MouseHitter.transform.position = GetComponent<Camera>().ScreenToWorldPoint( Input.mousePosition)+new Vector3(0,0,20f);
+        MouseHitter.transform.position = GetComponent<Camera>().ScreenToWorldPoint( Input.mousePosition);
+        MouseHitter.transform.position += new Vector3(0,0,- MouseHitter.transform.position.z);
     }
 }
