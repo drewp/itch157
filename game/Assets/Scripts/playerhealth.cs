@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class playerhealth : MonoBehaviour
 {
-    private float Healthbar = 30;
-    public float MaxHealth = 30;
+    private float Healthbar = 45;
+    public float MaxHealth = 45;
     [SerializeField]
     private Image hpbarImg;
 
@@ -27,7 +27,7 @@ public class playerhealth : MonoBehaviour
     private void FixedUpdate()
     {
         MaxHealth = 30 * PowerUpVars.GetComponent<PowerUpVariables>().HealthAddMod;
-        Healthbar += 0.005f;
+        Healthbar += 0.009f;
         if (Healthbar >= MaxHealth)
         {
             Healthbar = MaxHealth;
