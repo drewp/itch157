@@ -6,9 +6,9 @@ public class ProjectileScript : MonoBehaviour
 {
     [HideInInspector] public GameObject target;
     [HideInInspector] public float Damage;
-    public Rigidbody2D rb;
-
-    void OnTriggerEnter2D(Collider2D other)
+    [HideInInspector] public float Range;
+    [HideInInspector] public Vector3 StartPos;
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == target.tag)
         {
@@ -19,9 +19,11 @@ public class ProjectileScript : MonoBehaviour
     }
     void Update()
     {
-        if (rb.velocity.magnitude < .3f)
+        if (Vector3.Distance(StartPos,transform.position)>Range)
         {
+            
             Destroy(gameObject);
         }
     }
+   
 }

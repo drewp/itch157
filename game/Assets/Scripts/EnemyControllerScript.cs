@@ -78,7 +78,19 @@ public class EnemyControllerScript : MonoBehaviour
     }
     void Update()
     {
-        
+        Vector3 dir = Player.transform.position - transform.position;
+        dir = dir.normalized;
+        Vector3 newScale = transform.localScale;
+        float flip = 1f;
+
+        if ((dir.x < 0 && FacingRight) || (dir.x > 0 && !FacingRight))
+        {
+            flip = -1f;
+            FacingRight = !FacingRight;
+        }
+        newScale.x *= flip;
+        transform.localScale = newScale;
+
         if (Health <= 0)
         {
             
@@ -180,16 +192,7 @@ public class EnemyControllerScript : MonoBehaviour
 
         rb.AddForce(force*dir);
         
-        Vector3 newScale = transform.localScale;
-        float flip = 1f;
-
-        if ((dir.x < 0 && FacingRight) || (dir.x > 0 && !FacingRight))
-        {
-            flip = -1f;
-            FacingRight = !FacingRight;
-        }
-        newScale.x *= flip;
-        transform.localScale = newScale;
+        
 
     }
 
