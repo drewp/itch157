@@ -40,11 +40,11 @@ public class PowerUpManager : MonoBehaviour
                     }
                     break;
                 case 2:
-                    PowerUpVars.GetComponent<PowerUpVariables>().ClockSpeedMod += 0.10f;
+                    PowerUpVars.GetComponent<PowerUpVariables>().ClockSpeedMod += 0.5f;
                     color = Color.white;
                     if (PowerUpVars.GetComponent<PowerUpVariables>().PickedUp[Type] < 1)
                     {
-                        PUI.DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "Speed Of Light + 1", "Raises clock speed by 10%", color);
+                        PUI.DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "Speed Of Light + 1", "Raises clock speed by 5%", color);
                         PowerUpVars.GetComponent<PowerUpVariables>().PickedUp[Type] += 1;
                     }
                     break;

@@ -24,7 +24,7 @@ public class Generator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        int Ran = Random.Range(0, 1000000);
+        int Ran = Random.Range(0, 100000);
         if(Ran <= PowerUpObj.GetComponent<PowerUpVariables>().FullyRechargeChanceMod)
         {
             Power = MaxPower;
