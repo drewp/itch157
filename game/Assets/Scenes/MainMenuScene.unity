@@ -11415,7 +11415,8 @@ MonoBehaviour:
     runs out and you lose track of time! \n\nYou must get batteries by eliminating
     enemy robots and carrying their batteries (press E) back to your clock. \n\nWatch
     out!!! Not every robot drops a battery and they are dangerous!\n \nUse WASD to
-    move and your mouse and left click button to attack.\n\nRemember the time..."
+    move and your mouse and left click button to attack. Also Space is Dash.\n\nRemember
+    the time..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -16,7 +16,7 @@ public class Achivment : MonoBehaviour
         
     }
 
-    void CallAchievement(int type)
+    public void CallAchievement(int type)
     {
         PowerUpUi PUI = GameObject.Find("PowerUpInvintory").GetComponent<PowerUpUi>();
         switch (type){
@@ -60,7 +60,7 @@ public class Achivment : MonoBehaviour
                 PUI.DoAchUpPopUp(AchPics[type - 1], "100%", "You got every Aachievement");
                 break;
             case 14:
-                PUI.DoAchUpPopUp(AchPics[type - 1], "Unlimited Power", "Get generator power over 10k");
+                PUI.DoAchUpPopUp(AchPics[type - 1], "Unlimited Power", "Get generator power over 10k"); // done
                 break;
             case 15:
                 PUI.DoAchUpPopUp(AchPics[type - 1], "You Know How To Play", "Survive 1 Minute");

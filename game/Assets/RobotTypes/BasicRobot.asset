@@ -19,6 +19,10 @@ MonoBehaviour:
   AttackCooldown: 2
   AttackRange: 0.6
   WanderRange: 5
+  AffectedByBattery: 1
   SpeedMult: 10
+  Projectile: {fileID: 0}
+  ProjectileForce: 0
+  ProjectileRange: 0
   Agro: 0
   Attack: 0

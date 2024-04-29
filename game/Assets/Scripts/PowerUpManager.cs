@@ -30,12 +30,11 @@ public class PowerUpManager : MonoBehaviour
             {
                 case 1:
                     //Fast Feet
-                    PowerUpVars.GetComponent<PowerUpVariables>().MovementSpeedMod += 0.07f;
+                    PowerUpVars.GetComponent<PowerUpVariables>().MovementSpeedMod += 0.04f;
                     color = Color.white;
-                    PUI.DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "Fast Feet", "Raises your speed by 7%", color);
                     if (PowerUpVars.GetComponent<PowerUpVariables>().PickedUp[Type] < 1)
                     {
-                        PUI.DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "Fast Feet", "Raises your speed by 7%", color);
+                        PUI.DoPowerUpPopUp(GetComponent<SpriteRenderer>().sprite, "Fast Feet", "Raises your speed by 4%", color);
                         PowerUpVars.GetComponent<PowerUpVariables>().PickedUp[Type] += 1;
                     }
                     break;

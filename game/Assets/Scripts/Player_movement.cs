@@ -18,7 +18,7 @@ public class Player_movement : MonoBehaviour
     int TimeRan = 1;
 
     float SAmount = 0.01f;
-    public float ShakeAmount = .1f;
+    public float ShakeAmount = .05f;
     public float ShakeTime = .2f;
     bool rep = false;
     private bool dashcooldown = false;
