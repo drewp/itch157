@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 30
   agroDst: 10
-  Dmg: 6
+  Dmg: 10
   Speed: 200
   AttackCooldown: 2
   AttackRange: 0.6
