@@ -29,6 +29,7 @@ public class Pause : MonoBehaviour
     }
     public void retry()
     {
+        Time.timeScale = 1;
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
