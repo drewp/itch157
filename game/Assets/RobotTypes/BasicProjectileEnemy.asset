@@ -17,12 +17,12 @@ MonoBehaviour:
   Dmg: 5
   Speed: 15
   AttackCooldown: 4
-  AttackRange: 10
+  AttackRange: 7
   WanderRange: 30
   AffectedByBattery: 1
   SpeedMult: 10
   Projectile: {fileID: 2937679844165784188, guid: 64655f9db8160654ea11c60331bf0879, type: 3}
-  ProjectileForce: 6
+  ProjectileForce: 3
   ProjectileRange: 20
   Agro: 0
   Attack: 1
