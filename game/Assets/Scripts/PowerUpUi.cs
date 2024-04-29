@@ -15,11 +15,19 @@ public class PowerUpUi : MonoBehaviour
     private GameObject PowerUpInfo;
     private GameObject PowerUPPopUp;
     private GameObject PowerUpName;
+
     private bool DoingPopUp = false;
     private List<string> PopUpInfos = new List<string>();
     private List<Sprite> PopUpSprites = new List<Sprite>();
     private List<Color> PopUpColors = new List<Color>();
     private List<string> PopUpNames = new List<string>();
+
+    private bool DoingAchPopUp = false;
+    private List<string> AchUpInfos = new List<string>();
+    private List<Sprite> AchUpSprites = new List<Sprite>();
+    private List<Color> AchUpColors = new List<Color>();
+    private List<string> AchUpNames = new List<string>();
+
     void Start()
     {
         PowerUpImage = transform.Find("PowerUpPopUp").Find("PowerUpImage").gameObject;
@@ -27,9 +35,14 @@ public class PowerUpUi : MonoBehaviour
         PowerUpName = transform.Find("PowerUpPopUp").Find("PowerUpName").gameObject;
         PowerUPPopUp = transform.Find("PowerUpPopUp").gameObject;
 
+        AchUpImage = transform.Find("AchUpPopUp").Find("AchUpImage").gameObject;
+        AchUpInfo = transform.Find("AchUpPopUp").Find("AchUpInfo").gameObject;
+        AchUpName = transform.Find("AchUpPopUp").Find("AchUpName").gameObject;
+        AchUPPopUp = transform.Find("AchUpPopUp").gameObject;
+
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).gameObject.name != "PowerUpPopUp") { PowerUpHolders.Add(gameObject.transform.GetChild(i).gameObject); }
+            if (gameObject.transform.GetChild(i).gameObject.name != "PowerUpPopUp" && gameObject.transform.GetChild(i).gameObject.name != "AchUpPopUp") { PowerUpHolders.Add(gameObject.transform.GetChild(i).gameObject); }
         }
         for (int i = 0; i < PowerUpHolders.Count; i++)
         {
@@ -71,6 +84,18 @@ public class PowerUpUi : MonoBehaviour
             PopUpSprites.RemoveAt(0);
             PopUpNames.RemoveAt(0);
         }
+        if (AchUpInfos.Count != 0 && !DoingAchPopUp)
+        {
+            AchUpImage.GetComponent<Image>().sprite = AchUpSprites[0];
+            AchUpInfo.GetComponent<TextMeshProUGUI>().text = AchUpInfos[0];
+            AchUpInfo.GetComponent<TextMeshProUGUI>().color = AchUpColors[0];
+            AchUpName.GetComponent<TextMeshProUGUI>().text = AchUpNames[0];
+            StartCoroutine(PopUpPopOut());
+            AchUpColors.RemoveAt(0);
+            AchUpInfos.RemoveAt(0);
+            AchUpSprites.RemoveAt(0);
+            AchUpNames.RemoveAt(0);
+        }
     }
 
 
@@ -81,6 +106,15 @@ public class PowerUpUi : MonoBehaviour
         PopUpInfos.Add(description); 
         PopUpColors.Add(TextColor);
         PopUpNames.Add(name);
+
+    }
+
+    public void DoAchUpPopUp(Sprite Image, string name, string description, Color TextColor)
+    {
+        AchUpSprites.Add(Image);
+        AchUpInfos.Add(description);
+        AchUpColors.Add(TextColor);
+        AchUpNames.Add(name);
 
     }
 

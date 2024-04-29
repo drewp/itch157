@@ -16,6 +16,7 @@ public class EnemyObject : ScriptableObject
     [HideInInspector] public float SpeedMult = 10f;
     public GameObject Projectile;
     public float ProjectileForce;
+    public float ProjectileRange;
     public enum AgroMode {Basic};
     public AgroMode Agro;
 
@@ -50,26 +51,30 @@ public class EnemyObject : ScriptableObject
         if (HealthScript != null ) HealthScript.TakeDamage(Dmg);
         
     }
-
+    
     private void ProjectileAttack(GameObject Enemy, GameObject target)
     {
-       
         GameObject NewProj =  Instantiate(Projectile);
+        NewProj.transform.position = Enemy.transform.position;
         Vector3 dir = target.transform.position - Enemy.transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-        NewProj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        NewProj.transform.rotation = Quaternion.AngleAxis(angle+180f, Vector3.forward);
         NewProj.GetComponent<ProjectileScript>().target = target;
         NewProj.GetComponent<ProjectileScript>().Damage = Dmg;
-         dir = target.transform.position - Enemy.transform.position;
+        NewProj.GetComponent<ProjectileScript>().Range = ProjectileRange;
+        NewProj.GetComponent<ProjectileScript>().StartPos = Enemy.transform.position;
         dir = dir.normalized;
-        NewProj.GetComponent<Rigidbody>().AddForce(ProjectileForce*100f*dir);
+        NewProj.GetComponent<Rigidbody2D>().AddForce(ProjectileForce*100f*dir);
+
+
+
     }
-  
+
 
     public void DoAttack(GameObject Enemy, GameObject target)
     {
         if (Attack == AttackMode.Basic) BasicAttack(Enemy, target);
-        if (Attack == AttackMode.Projectile) BasicAttack(Enemy, target);
+        else if (Attack == AttackMode.Projectile) ProjectileAttack(Enemy, target);
     }
 
 
