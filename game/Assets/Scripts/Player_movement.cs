@@ -21,6 +21,7 @@ public class Player_movement : MonoBehaviour
     public float ShakeAmount = .1f;
     public float ShakeTime = .2f;
     bool rep = false;
+    private bool dashcooldown = false;
     void Start()
     {
         PowerUpScript = GameObject.Find("PowerUpObject");
@@ -91,5 +92,24 @@ public class Player_movement : MonoBehaviour
             TimeRan = 0;
             CancelInvoke("DoShake");
         }
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && !dashcooldown)
+        {
+            runSpeed += 20f;
+            dashcooldown = true;
+            Invoke("enddash", 0.1f);
+        }
+        
+    }
+    private void enddash()
+    {
+        runSpeed -= 20f;
+        Invoke("dashcd", 2.0f);
+    }
+    private void dashcd()
+    {
+        dashcooldown = false;
     }
 }
