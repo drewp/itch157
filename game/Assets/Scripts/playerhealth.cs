@@ -23,6 +23,14 @@ public class playerhealth : MonoBehaviour
         PlayerDamage.Play();
         Healthbar -= damage - PowerUpVars.GetComponent<PowerUpVariables>().SubTotalDamageTakenMod;
     }
+    public void Heal(float amount)
+    {
+        Healthbar += amount;
+        if (Healthbar >= MaxHealth)
+        {
+            Healthbar = MaxHealth;
+        }
+    }
 
     private void FixedUpdate()
     {

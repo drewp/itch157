@@ -62,6 +62,8 @@ public class EnemyControllerScript : MonoBehaviour
     }
     void death()
     {
+        playerhealth HealthScript = Player.GetComponent<playerhealth>();
+        if (HealthScript != null) HealthScript.Heal(1f);
         int RS = Random.Range(0, 500);
         if (RS <= 33 + PowerUpVars.GetComponent<PowerUpVariables>().BatteryDropChanceMod)
         {
