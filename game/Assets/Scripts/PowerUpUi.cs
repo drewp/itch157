@@ -16,6 +16,11 @@ public class PowerUpUi : MonoBehaviour
     private GameObject PowerUPPopUp;
     private GameObject PowerUpName;
 
+    private GameObject AchUpImage;
+    private GameObject AchUpInfo;
+    private GameObject AchUPPopUp;
+    private GameObject AchUpName;
+
     private bool DoingPopUp = false;
     private List<string> PopUpInfos = new List<string>();
     private List<Sprite> PopUpSprites = new List<Sprite>();
