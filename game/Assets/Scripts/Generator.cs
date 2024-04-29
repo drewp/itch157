@@ -35,7 +35,7 @@ public class Generator : MonoBehaviour
         MaxPower = BaseMaxPower * PowerUpObj.GetComponent<PowerUpVariables>().EnergyDrainMod * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerMod;
         if(MaxPower > 10000 && triggered != true)
         {
-            GameObject.Find("AchManager").GetComponent<Achivment>().CallAchievement(14);
+           // GameObject.Find("AchManager").GetComponent<Achivment>().CallAchievement(14);
         }
         if (Power > MaxPower)
         {
