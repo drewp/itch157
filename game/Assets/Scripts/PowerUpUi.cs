@@ -95,7 +95,7 @@ public class PowerUpUi : MonoBehaviour
             AchUpInfo.GetComponent<TextMeshProUGUI>().text = AchUpInfos[0];
             AchUpInfo.GetComponent<TextMeshProUGUI>().color = AchUpColors[0];
             AchUpName.GetComponent<TextMeshProUGUI>().text = AchUpNames[0];
-            StartCoroutine(PopUpPopOut());
+            StartCoroutine(AchPopUpPopOut());
             AchUpColors.RemoveAt(0);
             AchUpInfos.RemoveAt(0);
             AchUpSprites.RemoveAt(0);
@@ -138,5 +138,22 @@ public class PowerUpUi : MonoBehaviour
             yield return new WaitForSeconds(.001f);
         }
         DoingPopUp = false;
+    }
+
+    IEnumerator AchPopUpPopOut()
+    {
+        DoingAchPopUp = true;
+        for (int i = 0; i < 500; i++)
+        {
+            AchUPPopUp.transform.position -= new Vector3(0,.2f, 0);
+            yield return new WaitForSeconds(.001f);
+        }
+        yield return new WaitForSeconds(5);
+        for (int i = 0; i < 500; i++)
+        {
+            AchUPPopUp.transform.position += new Vector3(0,.2f,0);
+            yield return new WaitForSeconds(.001f);
+        }
+        DoingAchPopUp = false;
     }
 }
