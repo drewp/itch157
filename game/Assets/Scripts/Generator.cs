@@ -13,6 +13,8 @@ public class Generator : MonoBehaviour
     public AudioSource ClockSound;
 
     float GetGood = 1f;
+
+    bool triggered = false;
     
     void Start()
     {
@@ -31,6 +33,10 @@ public class Generator : MonoBehaviour
         }
         var BaseMaxPower = 3500 * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerAddMod;
         MaxPower = BaseMaxPower * PowerUpObj.GetComponent<PowerUpVariables>().EnergyDrainMod * PowerUpObj.GetComponent<PowerUpVariables>().ClockPowerMod;
+        if(MaxPower > 10000 && triggered != true)
+        {
+            GameObject.Find("AchManager").GetComponent<Achivment>().CallAchievement(14);
+        }
         if (Power > MaxPower)
         {
             Power = MaxPower;
