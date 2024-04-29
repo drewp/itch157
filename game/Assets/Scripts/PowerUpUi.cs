@@ -30,7 +30,6 @@ public class PowerUpUi : MonoBehaviour
     private bool DoingAchPopUp = false;
     private List<string> AchUpInfos = new List<string>();
     private List<Sprite> AchUpSprites = new List<Sprite>();
-    private List<Color> AchUpColors = new List<Color>();
     private List<string> AchUpNames = new List<string>();
 
     void Start()
@@ -93,10 +92,8 @@ public class PowerUpUi : MonoBehaviour
         {
             AchUpImage.GetComponent<Image>().sprite = AchUpSprites[0];
             AchUpInfo.GetComponent<TextMeshProUGUI>().text = AchUpInfos[0];
-            AchUpInfo.GetComponent<TextMeshProUGUI>().color = AchUpColors[0];
             AchUpName.GetComponent<TextMeshProUGUI>().text = AchUpNames[0];
             StartCoroutine(AchPopUpPopOut());
-            AchUpColors.RemoveAt(0);
             AchUpInfos.RemoveAt(0);
             AchUpSprites.RemoveAt(0);
             AchUpNames.RemoveAt(0);
@@ -114,11 +111,10 @@ public class PowerUpUi : MonoBehaviour
 
     }
 
-    public void DoAchUpPopUp(Sprite Image, string name, string description, Color TextColor)
+    public void DoAchUpPopUp(Sprite Image, string name, string description)
     {
         AchUpSprites.Add(Image);
         AchUpInfos.Add(description);
-        AchUpColors.Add(TextColor);
         AchUpNames.Add(name);
 
     }
