@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Damage: 0
+  rb: {fileID: 3482472490085647192}
 --- !u!1 &3578464452493944010
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,11 +53,15 @@ public class EnemyObject : ScriptableObject
 
     private void ProjectileAttack(GameObject Enemy, GameObject target)
     {
-        Vector3 dir = target.transform.position - Enemy.transform.position;
-        dir = dir.normalized;
+       
         GameObject NewProj =  Instantiate(Projectile);
+        Vector3 dir = target.transform.position - Enemy.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        NewProj.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         NewProj.GetComponent<ProjectileScript>().target = target;
         NewProj.GetComponent<ProjectileScript>().Damage = Dmg;
+         dir = target.transform.position - Enemy.transform.position;
+        dir = dir.normalized;
         NewProj.GetComponent<Rigidbody>().AddForce(ProjectileForce*100f*dir);
     }
   
